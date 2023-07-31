@@ -104,9 +104,9 @@
         .card-contain > div > img {
             display: block;
             margin-left: auto;
-            margin-right: auto;
+            margin-right: 15px;
             position: relative;
-            top: 10px;
+            top: 25%;
         }
     </style>
 </head>
@@ -136,7 +136,7 @@
                     <a id="noline" href="javascript:void(0)">Detail</a>
                 </div>
                 <div id="right">
-                    <img src="./image/done.png" alt="Done" width="40%">
+                    <img src="./image/done.png" alt="Done" width="30%">
                 </div>
             </div>
         </div>
