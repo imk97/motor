@@ -11,7 +11,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+<<<<<<< HEAD
             background-color: #FFFFFF;
+=======
+            background-color: #f5f5f5;
+>>>>>>> c695be24a5b7d1031eac8e6f1f2839237c8ea169
         }
 
         .navigationBar {
