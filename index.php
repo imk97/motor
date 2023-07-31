@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #B2B2B2;
+            background-color: #f5f5f5;
         }
 
         .navigationBar {
