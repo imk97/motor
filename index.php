@@ -21,11 +21,16 @@
             /* background-color: #B2B2B2; */
             width: 100%;
             height: 50px;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: #f5f5f5;
         }
 
         .navigationBar>p {
             font-weight: bold;
             padding: 15px 20px;
+            font-size: 20px;
         }
 
         .navigationBar>p:first-child {
@@ -68,9 +73,18 @@
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             background-color: white;
             padding: 10px;
+            display: flex;
         }
 
-        .card-contain > p, h4, a {
+        .card-contain > div#left {
+            width: 70%;
+        }
+
+        .card-contain > div#right {
+            width: 30%;
+        }
+
+        .card-contain > div > p, h4, a {
             height: auto;
             position: relative;
             top: 10px;
@@ -78,8 +92,21 @@
             /* vertical-align: middle; */
         }
 
-        .card-contain > p {
+        .card-contain > div > p {
             font-size: 12px;
+        }
+
+        .card-contain > div > #noline {
+            text-decoration: none;
+            color: grey;
+        }
+
+        .card-contain > div > img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            top: 10px;
         }
     </style>
 </head>
@@ -99,29 +126,21 @@
         <h5>Select</h5>
     </div>
 
-
-    <!-- Contain card -->
-    <div class="card-container">
-        <div class="card-contain">
-            <p>5 May 2023 &bull; 17:56</p>
-            <h4>Service 1</h4>
-            <a href="javascript:void(0)">Detail</a>
+    <?php for ($i=0; $i < 10; $i++) { ?>
+        <!-- Contain card -->
+        <div class="card-container">
+            <div class="card-contain">
+                <div id="left">
+                    <p>5 May 2023 &bull; 17:56</p>
+                    <h4>Service 1</h4>
+                    <a id="noline" href="javascript:void(0)">Detail</a>
+                </div>
+                <div id="right">
+                    <img src="./image/done.png" alt="Done" width="40%">
+                </div>
+            </div>
         </div>
-    </div>
-
-    <!-- <div class="card-container">
-        <div class="card-contain">
-            <p>5 May 2023</p>
-            <h5>Tukar Minyak Hitam</h5>
-        </div>
-    </div> -->
-
-    <!-- <div class="card-container">
-        <div class="card-contain">
-            <p>5 May 2023</p>
-            <h5>Tukar Minyak Hitam</h5>
-        </div>
-    </div> -->
+    <?php } ?>
 
 </body>
 
