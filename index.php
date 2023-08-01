@@ -19,7 +19,7 @@
 
         .navigationBar {
             /* background-color: #B2B2B2; */
-            width: 100%;
+            max-width: 100%;
             height: 50px;
             position: -webkit-sticky;
             position: sticky;
@@ -44,7 +44,7 @@
         }
 
         .header {
-            width: 100%;
+            max-width: 100%;
             height: 100px;
             padding: 30px;
             /* background-color: whitesmoke; */
@@ -67,7 +67,7 @@
 
         .card-contain {
             /* cursor: pointer; */
-            width: 100%;
+            max-width: 100%;
             height: 100px;
             border-radius: 12px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -77,11 +77,11 @@
         }
 
         .card-contain > div#left {
-            width: 70%;
+            width: 90%;
         }
 
         .card-contain > div#right {
-            width: 30%;
+            width: 10%;
             position: relative;
         }
 
@@ -103,16 +103,17 @@
         }
 
         .card-contain > div > img {
-            display: block;
+            /* display: block;
             margin-left: auto;
-            /* margin-right: 15px;
+            margin-right: 15px;
             position: relative;
             top: 25%; */
+            max-width: 100%;
         }
 
         @media screen and (max-width: 768px) {
             .card-contain > div > img {
-                width: 45%;
+                max-width: 45%;
                 height: auto;
                 padding-top: 10px;
                 padding-bottom: 10px;
@@ -146,7 +147,7 @@
                     <a id="noline" href="javascript:void(0)">Detail</a>
                 </div>
                 <div id="right">
-                    <img src="./image/done.png" alt="Done" width="30%">
+                    <img src="./image/new_tick.png" alt="Done">
                 </div>
             </div>
         </div>
