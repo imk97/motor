@@ -62,7 +62,7 @@
 
         .card-container {
             padding: 10px 20px;
-            position: relative;
+            /* position: relative; */
         }
 
         .card-contain {
@@ -110,6 +110,29 @@
             top: 25%; */
         }
 
+        .category {
+            width: 100%;
+            /* height: 30px; */
+            padding: 5px 20px;
+            /* border: 1px solid black; */
+            margin: auto;
+            display: flex;
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+        }
+
+        .card-category {
+            width: 100%;
+            /* height: 30px; */
+            /* position: absolute; */
+            /* border: 3px solid salmon; */
+            text-align: center;
+            /* margin: 0px 10px; */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            padding: 5px 0px;
+            margin: 5px;
+            border-radius: 12px;
+        }
+
         @media screen and (max-width: 768px) {
             .card-contain > div > img {
                 width: 45%;
@@ -130,6 +153,13 @@
     <div class="header">
         <h2>2 Motor Maintenace</h2>
         <h3>in Scheduled</h3>
+    </div>
+
+    <!-- category - itmam/1/8/2023 -->
+    <div class="category">
+        <div class="card-category">All</div>
+        <div class="card-category">Upcoming</div>
+        <div class="card-category">Completed</div>
     </div>
 
     <div class="title">
