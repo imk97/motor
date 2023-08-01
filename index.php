@@ -82,6 +82,7 @@
 
         .card-contain > div#right {
             width: 30%;
+            position: relative;
         }
 
         .card-contain > div > p, h4, a {
@@ -104,9 +105,18 @@
         .card-contain > div > img {
             display: block;
             margin-left: auto;
-            margin-right: 15px;
+            /* margin-right: 15px;
             position: relative;
-            top: 25%;
+            top: 25%; */
+        }
+
+        @media screen and (max-width: 768px) {
+            .card-contain > div > img {
+                width: 45%;
+                height: auto;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
         }
     </style>
 </head>
