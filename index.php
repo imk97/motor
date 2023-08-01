@@ -131,6 +131,7 @@
             padding: 5px 0px;
             margin: 5px;
             border-radius: 12px;
+            font-weight: bold;
         }
 
         @media screen and (max-width: 768px) {
