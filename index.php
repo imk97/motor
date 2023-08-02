@@ -49,11 +49,11 @@
 
         .title > h3 {
             font-weight: bold;
-            padding: 5px 20px;
+            padding: 5px 20%;
         }
 
         .card-container {
-            padding: 10px 20px;
+            padding: 1vh 20vw;
         }
 
         .card-contain {
@@ -102,7 +102,7 @@
 
         .category {
             width: 100%;
-            padding: 5px 20px;
+            padding: 5px 20%;
             margin: auto;
             display: flex;
         }
@@ -122,19 +122,20 @@
         }
 
         @media screen and (max-width: 768px) {
-            .card-contain > div > img {
-                max-width: 45%;
-                height: auto;
-                padding-top: 10px;
-                padding-bottom: 10px;
+            .card-container {
+                padding: 1vw;
+            }
+
+            .title > h3 {
+                font-weight: bold;
+                padding: 1vw;
+            }
+
+            .category {
+                padding: 0px;
             }
         }
 
-        /* @media screen and (min-width: 768px) {
-            body {
-                background-color: #f5f5f5;
-            }
-        } */
     </style>
 </head>
 
