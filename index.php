@@ -18,15 +18,15 @@
         }
 
         .navigationBar {
-            /* background-color: #B2B2B2; */
             max-width: 100%;
             height: 50px;
-            /* position: -webkit-sticky;
-            position: sticky; */
             top: 0;
             background-color: #f5f5f5;
             padding: 15px 20px;
             font-weight: bold;
+            /* position: sticky;
+            position: -webkit-sticky;
+            overflow: hidden; */
         }
 
         .navigationBar > ul {
@@ -37,46 +37,26 @@
             float: left;
         }
 
-        /* .navigationBar>p {
-            font-weight: bold;
-            padding: 15px 20px;
-            font-size: 20px;
-        }
-
-        .navigationBar>p:first-child {
-            position: absolute;
-            left: 0;
-        }
-
-        .navigationBar>p:last-child {
-            position: absolute;
-            right: 0;
-        } */
-
         .header {
             max-width: 100%;
             height: 100px;
             padding: 30px;
-            /* background-color: whitesmoke; */
         }
 
-        .header>h2,
-        h3 {
+        .header > * {
             text-align: center;
         }
 
-        .title > h5 {
+        .title > h3 {
             font-weight: bold;
             padding: 5px 20px;
         }
 
         .card-container {
             padding: 10px 20px;
-            /* position: relative; */
         }
 
         .card-contain {
-            /* cursor: pointer; */
             max-width: 100%;
             height: 100px;
             border-radius: 12px;
@@ -100,7 +80,6 @@
             position: relative;
             top: 10px;
             padding: 2px;
-            /* vertical-align: middle; */
         }
 
         .card-contain > div > p {
@@ -123,12 +102,9 @@
 
         .category {
             width: 100%;
-            /* height: 30px; */
             padding: 5px 20px;
-            /* border: 1px solid black; */
             margin: auto;
             display: flex;
-            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
         }
 
         .card-category {
@@ -153,6 +129,12 @@
                 padding-bottom: 10px;
             }
         }
+
+        /* @media screen and (min-width: 768px) {
+            body {
+                background-color: #f5f5f5;
+            }
+        } */
     </style>
 </head>
 
@@ -179,7 +161,7 @@
     </div>
 
     <div class="title">
-        <h5>Select</h5>
+        <h3>Select</h3>
     </div>
 
     <?php for ($i=0; $i < 10; $i++) { ?>
