@@ -123,16 +123,17 @@
 
         @media screen and (max-width: 768px) {
             .card-container {
-                padding: 1vw;
+                padding: 0.5vh 3vw;
             }
 
             .title > h3 {
                 font-weight: bold;
-                padding: 1vw;
+                padding: 0px 10%;
+                margin-top: 20px;
             }
 
             .category {
-                padding: 0px;
+                padding: 0px 10%;
             }
         }
 
