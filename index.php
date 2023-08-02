@@ -121,6 +121,18 @@
             font-weight: bold;
         }
 
+        .search-container {
+            margin: auto;
+            width: 100%;
+            padding: 1vh 20%;
+            margin-bottom: 2vh;
+        }
+
+        .search-container > input {
+            width: 100%;
+            height: 30px;
+        }
+
         @media screen and (max-width: 768px) {
             .card-container {
                 padding: 0.5vh 3vw;
@@ -133,7 +145,11 @@
             }
 
             .category {
-                padding: 0px 10%;
+                padding: 0px 3vw;
+            }
+
+            .search-container {
+                padding: 0px 3vw;
             }
         }
 
@@ -153,6 +169,11 @@
     <div class="header">
         <h2>2 Motor Maintenace</h2>
         <h3>in Scheduled</h3>
+    </div>
+
+    <!-- Search -->
+    <div class="search-container">
+        <input type="search" name="search" id="search">
     </div>
 
     <!-- category - itmam/1/8/2023 -->
