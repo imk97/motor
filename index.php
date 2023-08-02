@@ -21,13 +21,23 @@
             /* background-color: #B2B2B2; */
             max-width: 100%;
             height: 50px;
-            position: -webkit-sticky;
-            position: sticky;
+            /* position: -webkit-sticky;
+            position: sticky; */
             top: 0;
             background-color: #f5f5f5;
+            padding: 15px 20px;
+            font-weight: bold;
         }
 
-        .navigationBar>p {
+        .navigationBar > ul {
+            list-style-type: none;
+        }
+
+        .navigationBar > ul > li {
+            float: left;
+        }
+
+        /* .navigationBar>p {
             font-weight: bold;
             padding: 15px 20px;
             font-size: 20px;
@@ -41,7 +51,7 @@
         .navigationBar>p:last-child {
             position: absolute;
             right: 0;
-        }
+        } */
 
         .header {
             max-width: 100%;
@@ -62,7 +72,7 @@
 
         .card-container {
             padding: 10px 20px;
-            position: relative;
+            /* position: relative; */
         }
 
         .card-contain {
@@ -124,8 +134,12 @@
 
 <body>
     <div class="navigationBar">
-        <p>Hi, itmam</p>
-        <p>&#43;</p>
+        <ul>
+            <li>Hi, itmam</li>
+            <li style="float: right">&#43;</li>
+        </ul>
+        <!-- <p>Hi, itmam</p>
+        <p>&#43;</p> -->
     </div>
 
     <div class="header">
@@ -147,7 +161,7 @@
                     <a id="noline" href="javascript:void(0)">Detail</a>
                 </div>
                 <div id="right">
-                    <img src="./image/new_tick.png" alt="Done">
+                    <!-- <img src="./image/new_tick.png" alt="Done"> -->
                 </div>
             </div>
         </div>
