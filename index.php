@@ -128,9 +128,12 @@
             margin-bottom: 2vh;
         }
 
-        .search-container > input {
+        .search-container > input[type=text] {
             width: 100%;
-            height: 30px;
+            height: 40px;
+            border: none;
+            border-radius: 12px;
+            padding: 2vh 5px;
         }
 
         @media screen and (max-width: 768px) {
@@ -173,7 +176,8 @@
 
     <!-- Search -->
     <div class="search-container">
-        <input type="search" name="search" id="search">
+        <input type="text" name="search" id="search" placeholder="Search..">
+        <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
     </div>
 
     <!-- category - itmam/1/8/2023 -->
