@@ -128,7 +128,7 @@
 
             .title > h3 {
                 font-weight: bold;
-                padding: 0px 10%;
+                padding: 0px 3vw;
                 margin-top: 20px;
             }
 
