@@ -177,7 +177,22 @@
             margin-top: 1vh;
             margin-bottom: 1vh;
             border-style: none;
-            height: 3vh;
+            height: 4vh;
+            /* padding: 0px 20%; */
+            /* text-indent: 5px; */
+        }
+
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
+            color: white;
+            background-color: blue;
+            height: 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > input[type=number], input[type=text] {
+            text-indent: 5px;
         }
 
         @media screen and (max-width: 768px) {
@@ -261,8 +276,8 @@
                 <label for="date">Date</label>
                 <input type="datetime" name="date" id="date" style="width: 100%">
 
-                <label for="threshold">Threshold</label>
-                <input type="text" name="threshold" id="threshold" style="width: 100%">
+                <label for="threshold">Threshold <bold>(km)</bold></label>
+                <input type="number" name="threshold" id="threshold" style="width: 100%">
             
                 <label for="service">Type of service</label>
                 <input type="text" name="service" id="service" style="width: 100%">
