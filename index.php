@@ -169,7 +169,7 @@
             background: #f5f5f5;
             height: 50vh;
             padding: 5vh 5vw;
-            border-radius: 15px;
+            border-radius: 15px 15px 0px 0px;
         }
 
         .bottomsheet-container .bottomsheet-contents .bottomsheet-body > * {
