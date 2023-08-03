@@ -136,6 +136,41 @@
             padding: 2vh 5px;
         }
 
+        .bottomsheet-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            /* right: 0;
+            bottom: 0; */
+            width: 100%;
+            height: 100%;
+            /* background-color: rgba(0,0,0,0.85);
+            opacity: 0; */
+            display: flex;
+            flex-direction: column-reverse;
+            /* justify-content: end; */
+            /* align-items: center; */
+        }
+
+        .bottomsheet-container .bottomsheet-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .bottomsheet-container .bottomsheet-contents {
+            background: #f5f5f5;
+            height: 50vh;
+            padding: 50px;
+        }
+
         @media screen and (max-width: 768px) {
             .card-container {
                 padding: 0.5vh 3vw;
@@ -206,6 +241,18 @@
             </div>
         </div>
     <?php } ?>
+
+    <!-- Bottom sheet component -->
+    <div class="bottomsheet-container">
+        <div class="bottomsheet-overlay"></div>       
+        <div class="bottomsheet-contents">
+            <div class="bottomsheet-body">
+                <h2>Hello, world!</h2>
+            </div>
+
+            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit explicabo vero quas eligendi, eos cupiditate sint aliquam a omnis commodi quos in libero veniam. Quidem, non a quibusdam consequuntur mollitia officia numquam sit quos dolorum quaerat reprehenderit laboriosam perspiciatis consequatur odit error dolore recusandae iste id quam magnam ut! Sint nulla minus excepturi libero officiis, deleniti, delectus obcaecati saepe natus rerum nesciunt! Nemo quo id ipsum fugiat voluptas ducimus incidunt nulla sed, voluptates modi exercitationem quod obcaecati corporis perspiciatis dolorum ullam provident sint iusto consequatur totam dolorem. Amet, praesentium accusamus dolore hic ad iusto nostrum exercitationem velit ex optio nihil obcaecati provident enim nobis molestiae cupiditate possimus error itaque facilis eligendi placeat eos quam! Consequatur eveniet corporis nam accusantium nemo harum non explicabo accusamus. Voluptatem laborum dolores magni voluptatibus doloribus sunt? Id quae vero, nemo nam dolore ab amet distinctio molestias excepturi blanditiis quia eos et eligendi magnam voluptas iusto.</p> -->
+        </div>
+    </div>
 
 </body>
 
