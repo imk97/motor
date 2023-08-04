@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motor maintenance</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'PT Serif', serif;
         }
 
         body {
@@ -35,6 +40,10 @@
 
         .navigationBar > ul > li {
             float: left;
+        }
+
+        .navigationBar > ul > li > button {
+            border-style: none;
         }
 
         .header {
@@ -136,6 +145,77 @@
             padding: 2vh 5px;
         }
 
+        .bottomsheet-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column-reverse;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .bottomsheet-container.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .bottomsheet-container .bottomsheet-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .bottomsheet-container .bottomsheet-contents {
+            background: #f5f5f5;
+            height: 400px;
+            padding: 5vh 20%;
+            border-radius: 15px 15px 0px 0px;
+        }
+
+        .bottomsheet-body > form > label {
+            display: block;
+            padding: 10px 0px;
+            font-weight: bold;
+        }
+
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=datetime] {
+            text-indent: 5px;
+            border-style: none none solid none;
+            border-radius: 0px;
+            border-width: 1px;
+            border-color: black;
+            background-color: #f5f5f5;
+            width: 100%;
+            height: 40px;
+        }
+
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+            margin: auto;
+            width: 150px;
+            height: 40px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: #ffffff;
+            border-radius: 10px;
+            border-style: none;
+            font-size: 16px;
+        }
+
         @media screen and (max-width: 768px) {
             .card-container {
                 padding: 0.5vh 3vw;
@@ -154,6 +234,14 @@
             .search-container {
                 padding: 0px 3vw;
             }
+
+            .bottomsheet-container .bottomsheet-contents {
+                padding: 15px 3vw;
+            }
+
+            .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+                width: 100%;
+            }
         }
 
     </style>
@@ -163,10 +251,8 @@
     <div class="navigationBar">
         <ul>
             <li>Hi, itmam</li>
-            <li style="float: right">&#43;</li>
+            <li style="float: right;"><button type="button" id="addButton">&#43;</button></li>
         </ul>
-        <!-- <p>Hi, itmam</p>
-        <p>&#43;</p> -->
     </div>
 
     <div class="header">
@@ -206,6 +292,54 @@
             </div>
         </div>
     <?php } ?>
+
+    <!-- Bottom sheet component -->
+    <div class="bottomsheet-container">
+        <div class="bottomsheet-overlay"></div>       
+        <div class="bottomsheet-contents">
+            <div class="bottomsheet-body">
+
+                <h2 style="text-align: center; padding-top: 10px">Maintenance Detail</h2>
+
+                <form action="" method="post">
+                    <label for="date">Date</label>
+                    <input type="datetime" name="date" id="date">
+
+                    <label for="threshold">Threshold <bold>(km)</bold></label>
+                    <input type="number" name="threshold" id="threshold">
+                
+                    <label for="service">Type of service</label>
+                    <input type="text" name="service" id="service">
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // let viewport = document.querySelector("meta[name=viewport]")
+        // console.log(viewport)
+
+        // console.log(screen.height)
+
+        let showBottomSheet = document.getElementById("addButton")
+        let bottomSheet = document.getElementsByClassName("bottomsheet-container")
+        let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
+
+        // Tambah show class pada css
+        showBottomSheet.addEventListener("click", () => {
+            console.log("Berjaya tekan add button")
+            bottomSheet[0].classList.add("show")
+        })
+
+        // Buang show class pada css
+        exitBottomSheet[0].addEventListener("click", () => {
+            console.log("Berjaya tutup bottom sheet")
+            bottomSheet[0].classList.remove("show")
+        })
+
+    </script>
 
 </body>
 
