@@ -167,32 +167,35 @@
 
         .bottomsheet-container .bottomsheet-contents {
             background: #f5f5f5;
-            height: 50vh;
-            padding: 5vh 5vw;
+            height: 400px;
+            padding: 5vh 20%;
             border-radius: 15px 15px 0px 0px;
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > * {
+        .bottomsheet-body > form > label {
             display: block;
-            margin-top: 1vh;
-            margin-bottom: 1vh;
-            border-style: none;
-            height: 4vh;
-            /* padding: 0px 20%; */
-            /* text-indent: 5px; */
+            padding: 10px 0px;
+            font-weight: bold;
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
-            color: white;
-            background-color: blue;
-            height: 40px;
-            text-align: center;
-            border-radius: 12px;
-            margin-top: 10px;
-        }
-
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > input[type=number], input[type=text] {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=datetime] {
             text-indent: 5px;
+            border-style: none none solid none;
+            border-radius: 0px;
+            border-width: 1px;
+            border-color: black;
+            background-color: #f5f5f5;
+            width: 100%;
+            height: 40px;
+        }
+
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+            /* display: flex; */
+            /* justify-content: center; */
+            /* pddin-top: 10px; */
+            margin: auto;
+            width: 150px;
+            height: 30px;
         }
 
         @media screen and (max-width: 768px) {
@@ -212,6 +215,10 @@
 
             .search-container {
                 padding: 0px 3vw;
+            }
+
+            .bottomsheet-container .bottomsheet-contents {
+                padding: 15px 3vw;
             }
         }
 
@@ -271,22 +278,36 @@
         <div class="bottomsheet-overlay"></div>       
         <div class="bottomsheet-contents">
             <div class="bottomsheet-body">
-                <!-- <h2>Hello, world!</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit explicabo vero quas eligendi, eos cupiditate sint aliquam a omnis commodi quos in libero veniam. Quidem, non a quibusdam consequuntur mollitia officia numquam sit quos dolorum quaerat reprehenderit laboriosam perspiciatis consequatur odit error dolore recusandae iste id quam magnam ut! Sint nulla minus excepturi libero officiis, deleniti, delectus obcaecati saepe natus rerum nesciunt! Nemo quo id ipsum fugiat voluptas ducimus incidunt nulla sed, voluptates modi exercitationem quod obcaecati corporis perspiciatis dolorum ullam provident sint iusto consequatur totam dolorem. Amet, praesentium accusamus dolore hic ad iusto nostrum exercitationem velit ex optio nihil obcaecati provident enim nobis molestiae cupiditate possimus error itaque facilis eligendi placeat eos quam! Consequatur eveniet corporis nam accusantium nemo harum non explicabo accusamus. Voluptatem laborum dolores magni voluptatibus doloribus sunt? Id quae vero, nemo nam dolore ab amet distinctio molestias excepturi blanditiis quia eos et eligendi magnam voluptas iusto.</p> -->
-                <label for="date">Date</label>
-                <input type="datetime" name="date" id="date" style="width: 100%">
 
-                <label for="threshold">Threshold <bold>(km)</bold></label>
-                <input type="number" name="threshold" id="threshold" style="width: 100%">
-            
-                <label for="service">Type of service</label>
-                <input type="text" name="service" id="service" style="width: 100%">
-            
-                <button type="submit" style="margin: auto; width: 50%;">Submit</button>
+                <h2 style="text-align: center; padding-top: 10px">Maintenance Detail</h2>
+
+                <form action="" method="post">
+                    <label for="date">Date</label>
+                    <input type="datetime" name="date" id="date">
+
+                    <label for="threshold">Threshold <bold>(km)</bold></label>
+                    <input type="number" name="threshold" id="threshold">
+                
+                    <label for="service">Type of service</label>
+                    <input type="text" name="service" id="service">
+
+                    <button type="submit">Submit</button>
+                </form>
+
+
+
+                <!-- <br><br> -->
+
             </div>
-
         </div>
     </div>
+
+    <script>
+        let viewport = document.querySelector("meta[name=viewport]")
+        console.log(viewport)
+
+        console.log(screen.height)
+    </script>
 
 </body>
 
