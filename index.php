@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motor maintenance</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'PT Serif', serif;
         }
 
         body {
@@ -35,6 +40,10 @@
 
         .navigationBar > ul > li {
             float: left;
+        }
+
+        .navigationBar > ul > li > button {
+            border-style: none;
         }
 
         .header {
@@ -146,6 +155,13 @@
             height: 100%;
             display: flex;
             flex-direction: column-reverse;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .bottomsheet-container.show {
+            opacity: 1;
+            pointer-events: auto;
         }
 
         .bottomsheet-container .bottomsheet-overlay {
@@ -188,14 +204,16 @@
         .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
             margin: auto;
             width: 150px;
-            height: 30px;
-            margin-top: 10px;
+            height: 40px;
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: blue;
+            background-color: black;
             color: #ffffff;
-            border-radius: 12px;
+            border-radius: 10px;
+            border-style: none;
+            font-size: 16px;
         }
 
         @media screen and (max-width: 768px) {
@@ -220,6 +238,10 @@
             .bottomsheet-container .bottomsheet-contents {
                 padding: 15px 3vw;
             }
+
+            .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+                width: 100%;
+            }
         }
 
     </style>
@@ -229,7 +251,7 @@
     <div class="navigationBar">
         <ul>
             <li>Hi, itmam</li>
-            <li style="float: right">&#43;</li>
+            <li style="float: right;"><button type="button" id="addButton">&#43;</button></li>
         </ul>
     </div>
 
@@ -296,10 +318,27 @@
     </div>
 
     <script>
-        let viewport = document.querySelector("meta[name=viewport]")
-        console.log(viewport)
+        // let viewport = document.querySelector("meta[name=viewport]")
+        // console.log(viewport)
 
-        console.log(screen.height)
+        // console.log(screen.height)
+
+        let showBottomSheet = document.getElementById("addButton")
+        let bottomSheet = document.getElementsByClassName("bottomsheet-container")
+        let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
+
+        // Tambah show class pada css
+        showBottomSheet.addEventListener("click", () => {
+            console.log("Berjaya tekan add button")
+            bottomSheet[0].classList.add("show")
+        })
+
+        // Buang show class pada css
+        exitBottomSheet[0].addEventListener("click", () => {
+            console.log("Berjaya tutup bottom sheet")
+            bottomSheet[0].classList.remove("show")
+        })
+
     </script>
 
 </body>
