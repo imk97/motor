@@ -144,12 +144,8 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            /* background-color: rgba(0,0,0,0.85);
-            opacity: 0; */
             display: flex;
             flex-direction: column-reverse;
-            /* justify-content: end; */
-            /* align-items: center; */
         }
 
         .bottomsheet-container .bottomsheet-overlay {
@@ -190,12 +186,16 @@
         }
 
         .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
-            /* display: flex; */
-            /* justify-content: center; */
-            /* pddin-top: 10px; */
             margin: auto;
             width: 150px;
             height: 30px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
+            color: #ffffff;
+            border-radius: 12px;
         }
 
         @media screen and (max-width: 768px) {
@@ -231,8 +231,6 @@
             <li>Hi, itmam</li>
             <li style="float: right">&#43;</li>
         </ul>
-        <!-- <p>Hi, itmam</p>
-        <p>&#43;</p> -->
     </div>
 
     <div class="header">
@@ -293,11 +291,6 @@
 
                     <button type="submit">Submit</button>
                 </form>
-
-
-
-                <!-- <br><br> -->
-
             </div>
         </div>
     </div>
