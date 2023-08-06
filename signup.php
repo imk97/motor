@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <title>Sign up</title>
     <style>
+        
         * {
             margin: 0;
             padding: 0;
