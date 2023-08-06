@@ -57,6 +57,7 @@
             background-color: black;
             color: #ffffff;
             font-size: 16px;
+            margin: 10px 0px;
         }
 
         h1 {
@@ -90,16 +91,14 @@
             
             <br>
             <a href="javascript:void(0)">Forgot password?</a>
-            <br><br>
             <button type="submit">Login</button>
             
-            <br><br>
             <!-- Google login -->
             <div id="g_id_onload" data-auto_select="true" data-client_id="37952741570-0q2t45pokk735dtug585vt760pnqvj0v.apps.googleusercontent.com" data-login_uri="<?php $_SERVER['SERVER_NAME']; ?>" data-auto_prompt="true" data-callback="handleCredentialResponse" style="width: 100%;"></div>
             <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
 
             <br>
-            <p>Not a member?<a href="javascript:void(0)">&nbsp;Signup now</a></p>
+            <p>Not a member?<a href="signup.php">&nbsp;Signup now</a></p>
         </form>
     </div>
 
