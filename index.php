@@ -324,19 +324,19 @@
         // console.log(screen.height)
 
         let showBottomSheet = document.getElementById("addButton")
-        let bottomSheet = document.getElementsByClassName("bottomsheet-container")
-        let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
+        let bottomSheet = document.getElementsByClassName("bottomsheet-container")[0]
+        let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")[0]
 
         // Tambah show class pada css
         showBottomSheet.addEventListener("click", () => {
-            console.log("Berjaya tekan add button")
-            bottomSheet[0].classList.add("show")
+            // console.log("Berjaya tekan add button")
+            bottomSheet.classList.add("show")
         })
 
         // Buang show class pada css
-        exitBottomSheet[0].addEventListener("click", () => {
-            console.log("Berjaya tutup bottom sheet")
-            bottomSheet[0].classList.remove("show")
+        exitBottomSheet.addEventListener("click", () => {
+            // console.log("Berjaya tutup bottom sheet")
+            bottomSheet.classList.remove("show")
         })
 
     </script>
