@@ -19,7 +19,7 @@ if (mysqli_num_rows($result) > 0) {
 } else {
 
     // Http code is unathorized
-    header('Location: signin.php?error=Incorrect credential. Please check and login again.', 401);
+    header('Location: signin.php?error=Incorrect credential.', 401);
     exit();
 }
 ?>

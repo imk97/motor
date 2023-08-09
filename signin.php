@@ -30,7 +30,7 @@
         .container {
             max-width: 350px;
             width: 100%;
-            height: 430px;
+            height: 450px;
             padding: 25px 30px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
             position: absolute;
@@ -68,6 +68,27 @@
             text-decoration: none;
         }
 
+        .alert {
+            background-color: #f44336;
+            color: white;
+            padding: 5px;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .closebtn {
+            float: right;
+            cursor: pointer;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        iframe {
+            width: 100%;
+        }
+
         @media screen and (max-width: 768px) {
             .container {
                 top: 20%;
@@ -82,6 +103,13 @@
 
     <div class="container">
         <h1>Login</h1>
+        <?php if(isset($_GET["error"])) { ?>
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+            <?php echo $_GET["error"]; ?>
+        </div>
+        <?php } ?>
+
         <form action="./login-process.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
@@ -95,7 +123,7 @@
             
             <!-- Google login -->
             <div id="g_id_onload" data-auto_select="true" data-client_id="37952741570-0q2t45pokk735dtug585vt760pnqvj0v.apps.googleusercontent.com" data-login_uri="<?php $_SERVER['SERVER_NAME']; ?>" data-auto_prompt="true" data-callback="handleCredentialResponse" style="width: 100%;"></div>
-            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left" data-width="290"></div>
 
             <br>
             <p>Not a member?<a href="./signup.php">&nbsp;Signup now</a></p>
