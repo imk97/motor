@@ -1,7 +1,7 @@
 <?php
 session_start();
-$email = $_GET['email'];
-$pass = $_GET['password'];
+$email = $_POST['email'];
+$pass = $_POST['password'];
 
 // include db info
 include './db.php';
