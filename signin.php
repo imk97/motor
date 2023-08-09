@@ -34,8 +34,8 @@
             padding: 25px 30px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
             position: absolute;
-            top: 30%;
-            bottom: 40%;
+            top: 25%;
+            bottom: 25%;
             background-color: #f5f5f5;
             /* border: 1px solid grey; */
         }
@@ -48,6 +48,7 @@
             text-indent: 5px;
             margin-bottom: 5px;
             background-color: #f5f5f5;
+            border-radius: 0px;
         }
 
         button {
@@ -85,15 +86,11 @@
             color: black;
         }
 
-        iframe {
-            width: 100%;
-        }
-
         @media screen and (max-width: 768px) {
-            .container {
-                top: 20%;
-                bottom: 20%;
-            }
+            /* .container {
+                top: 25%;
+                bottom: 25%;
+            } */
         }
     </style>
 </head>
