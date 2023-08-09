@@ -1,3 +1,10 @@
+<?php
+// Check have permission to access the file or not
+if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
+    // Http code is authorized
+    header('Location: signin.php', 401);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

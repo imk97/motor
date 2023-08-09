@@ -82,7 +82,7 @@
 
     <div class="container">
         <h1>Login</h1>
-        <form action="javascript:void(0)" method="post">
+        <form action="./login-process.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
 
@@ -98,7 +98,7 @@
             <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
 
             <br>
-            <p>Not a member?<a href="signup.php">&nbsp;Signup now</a></p>
+            <p>Not a member?<a href="./signup.php">&nbsp;Signup now</a></p>
         </form>
     </div>
 
