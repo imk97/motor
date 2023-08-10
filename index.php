@@ -1,8 +1,7 @@
 <?php
-$_SESSION["username"] = "itmam";
-$_SESSION["id"] = "1";
+session_start();
 // Check have permission to access the file or not
-if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
+if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     // Http code is authorized
     header('Location: signin.php', 401);
 }
@@ -15,7 +14,7 @@ if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motor maintenance</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/50f334ce21.js" crossorigin="anonymous"></script>    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 
@@ -43,16 +42,13 @@ if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
             overflow: hidden; */
         }
 
-        .navigationBar > ul {
+        ul {
             list-style-type: none;
         }
 
         .navigationBar > ul > li {
             float: left;
-        }
-
-        .navigationBar > ul > li > button {
-            border-style: none;
+            color: black;
         }
 
         .header {
@@ -225,6 +221,50 @@ if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
             font-size: 16px;
         }
 
+        #addButton {
+            cursor: pointer;
+            background-color: #f5f5f5;
+        }
+
+        .sidemenu {
+            display: none;
+            height: 100%;
+            width: 300px;
+            background-color: black;
+            z-index: 1;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+            /* opacity: 0.5; */
+        }
+
+        .sidemenu.show {
+            display: block;
+            /* display: flex;
+            align-items: center; */
+        }
+
+        .sidemenu ul li {
+            color: #ffffff;
+            padding: 10px 20px;
+            margin: 30px 0px;
+            cursor: pointer;
+        }
+
+        .sidemenu ul li i {
+            padding: 0px 30px;
+        }
+
+        .sidemenu > ul > li:last-child {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            border-top: 1px solid whitesmoke;
+            padding-top: 20px;
+            margin-bottom: 5px;
+        }
+
         @media screen and (max-width: 768px) {
             .card-container {
                 padding: 0.5vh 3vw;
@@ -256,12 +296,25 @@ if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
     </style>
 </head>
 
-<body>
+<body id="main">
     <div class="navigationBar">
         <ul>
-            <li>Hi, itmam</li>
-            <li style="float: right;"><button type="button" id="addButton">&#43;</button></li>
+            <li id="sidemenubar">Hi, <?php echo $_SESSION["name"]; ?></li>
+            <li id="addButton" style="float: right;">&#43;</li>
         </ul>
+    </div>
+
+    <!-- Side menu -->
+    <div class="sidemenu-container">
+        <div class="sidemenu">
+            <ul>
+                <!-- <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li> -->
+                <li style="text-align: center;"><?php echo $_SESSION["name"]; ?></li>
+                <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
+                <li id="profile"><i class="fa-regular fa-user"></i>Profile</li>
+                <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
+            </ul>
+        </div>
     </div>
 
     <div class="header">
@@ -347,6 +400,19 @@ if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
             // console.log("Berjaya tutup bottom sheet")
             bottomSheet[0].classList.remove("show")
         })
+
+        let sidemenubar = document.getElementById("sidemenubar")
+        let sidemenu = document.getElementsByClassName("sidemenu")
+        // let card = document.getElementsByClassName("card-container")
+
+        sidemenubar.addEventListener("click", () => {
+            console.log("sidemenu")
+            sidemenu[0].classList.add("show")
+        })
+
+        function logout() {
+            window.location.href = "logout.php"
+        }
 
     </script>
 
