@@ -1,4 +1,6 @@
 <?php
+$_SESSION["username"] = "itmam";
+$_SESSION["id"] = "1";
 // Check have permission to access the file or not
 if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
     // Http code is authorized
@@ -331,19 +333,19 @@ if (isset($_SESSION["username"]) == null && (isset($_SESSION["id"])) == null) {
         // console.log(screen.height)
 
         let showBottomSheet = document.getElementById("addButton")
-        let bottomSheet = document.getElementsByClassName("bottomsheet-container")[0]
-        let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")[0]
+        let bottomSheet = document.getElementsByClassName("bottomsheet-container")
+        let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
 
         // Tambah show class pada css
         showBottomSheet.addEventListener("click", () => {
             // console.log("Berjaya tekan add button")
-            bottomSheet.classList.add("show")
+            bottomSheet[0].classList.add("show")
         })
 
         // Buang show class pada css
-        exitBottomSheet.addEventListener("click", () => {
+        exitBottomSheet[0].addEventListener("click", () => {
             // console.log("Berjaya tutup bottom sheet")
-            bottomSheet.classList.remove("show")
+            bottomSheet[0].classList.remove("show")
         })
 
     </script>
