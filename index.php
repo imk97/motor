@@ -259,7 +259,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         .sidemenu-container .sidemenu-content {
-            display: block;
+            /* display: block; */
             height: 100%;
             width: 300px;
             background-color: black;
@@ -272,19 +272,23 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         .sidemenu-content > div {
-            text-align: center;
+            text-align: start;
             color: #ffffff;
-            padding: 10px 0px;
+            padding: 10px 20px;
         }
+
         .sidemenu-content ul li {
             color: #ffffff;
             padding: 10px 20px;
-            margin: 30px 0px;
+            /* margin: 30px 0px;  */
             cursor: pointer;
         }
 
         .sidemenu-content ul li i {
-            padding: 0px 30px;
+            padding-left: 0px;
+            padding-right: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
         }
 
         .sidemenu-content > ul > li:last-child {
@@ -292,8 +296,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             bottom: 0px;
             width: 100%;
             border-top: 1px solid whitesmoke;
-            padding-top: 20px;
-            margin-bottom: 5px;
+            /* padding-top: 20px; */
+            /* margin-bottom: 5px; */
         }
 
         @media screen and (max-width: 768px) {
@@ -351,7 +355,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <div class="header">
-        <h2>2 Motor Maintenace</h2>
+        <h2>2 Motor Maintenace Yet</h2>
         <h3>in Scheduled</h3>
     </div>
 
