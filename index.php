@@ -236,17 +236,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             width: 300px;
             background-color: black;
             z-index: 1;
-            position: absolute;
+            position: fixed;
             left: 0px;
             top: 0px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
-            /* opacity: 0.5; */
         }
 
         .sidemenu.show {
             display: block;
-            /* display: flex;
-            align-items: center; */
         }
 
         .sidemenu ul li {
@@ -309,16 +306,15 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <!-- Side menu -->
-    <div class="sidemenu-container">
-        <div class="sidemenu">
-            <ul>
-                <!-- <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li> -->
-                <li style="text-align: center;"><?php echo $_SESSION["name"]; ?></li>
-                <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
-                <li id="profile"><i class="fa-regular fa-user"></i>Profile</li>
-                <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
-            </ul>
-        </div>
+    <div class="sidemenu">
+        <ul>
+            <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li> 
+            <li style="text-align: center;"><?php echo $_SESSION["name"]; ?></li>
+            <li style="text-align: center;"><?php echo $_SESSION["email"]; ?></li>
+            <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
+            <li id="profile"><i class="fa-regular fa-user"></i>Profile</li>
+            <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
+        </ul>
     </div>
 
     <div class="header">
