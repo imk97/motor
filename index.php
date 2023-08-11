@@ -95,8 +95,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         .card-contain > div > p, h4, a {
             height: auto;
-            position: relative;
-            top: 10px;
             padding: 2px;
         }
 
@@ -230,34 +228,66 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #f5f5f5;
         }
 
-        .sidemenu {
-            display: none;
+        .sidemenu-container {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .sidemenu-container .sidemenu-overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.85);
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .sidemenu-container.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sidemenu-container .sidemenu-content {
+            display: block;
             height: 100%;
             width: 300px;
             background-color: black;
             z-index: 1;
             position: fixed;
-            left: 0px;
-            top: 0px;
+            left: 0;
+            top: 0;
+            bottom: 0;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
         }
 
-        .sidemenu.show {
-            display: block;
+        .sidemenu-content > div {
+            text-align: center;
+            color: #ffffff;
+            padding: 10px 0px;
         }
-
-        .sidemenu ul li {
+        .sidemenu-content ul li {
             color: #ffffff;
             padding: 10px 20px;
             margin: 30px 0px;
             cursor: pointer;
         }
 
-        .sidemenu ul li i {
+        .sidemenu-content ul li i {
             padding: 0px 30px;
         }
 
-        .sidemenu > ul > li:last-child {
+        .sidemenu-content > ul > li:last-child {
             position: absolute;
             bottom: 0px;
             width: 100%;
@@ -306,15 +336,18 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <!-- Side menu -->
-    <div class="sidemenu">
-        <ul>
-            <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li> 
-            <li style="text-align: center;"><?php echo $_SESSION["name"]; ?></li>
-            <li style="text-align: center;"><?php echo $_SESSION["email"]; ?></li>
-            <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
-            <li id="profile"><i class="fa-regular fa-user"></i>Profile</li>
-            <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
-        </ul>
+    <div class="sidemenu-container">
+        <div class="sidemenu-overlay"></div>
+        <div class="sidemenu-content">
+            <div><?php echo $_SESSION["name"]; ?></div>
+            <div><?php echo $_SESSION["email"]; ?></div>
+            <ul>
+                <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
+                <li id="vehicle"><i class="fa-solid fa-car"></i>Vehicle</li>
+                <li id="profile"><i class="fa-regular fa-user"></i>Profile</li>
+                <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
+            </ul>
+        </div>
     </div>
 
     <div class="header">
@@ -385,34 +418,42 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         // console.log(screen.height)
 
+        // Buka dan tutup BOTTOM SHEET
         let showBottomSheet = document.getElementById("addButton")
         let bottomSheet = document.getElementsByClassName("bottomsheet-container")
         let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
 
-        // Tambah show class pada css
         showBottomSheet.addEventListener("click", () => {
             // console.log("Berjaya tekan add button")
             bottomSheet[0].classList.add("show")
         })
 
-        // Buang show class pada css
         exitBottomSheet[0].addEventListener("click", () => {
             // console.log("Berjaya tutup bottom sheet")
             bottomSheet[0].classList.remove("show")
         })
 
+        // Buka dan tutup SIDE MENU bar
         let sidemenubar = document.getElementById("sidemenubar")
-        let sidemenu = document.getElementsByClassName("sidemenu")
-        // let card = document.getElementsByClassName("card-container")
+        let sidemenu = document.getElementsByClassName("sidemenu-container")
+        let exitSidemenu = sidemenu[0].getElementsByClassName("sidemenu-overlay")
 
         sidemenubar.addEventListener("click", () => {
-            console.log("sidemenu")
+            // console.log("sidemenu")
             sidemenu[0].classList.add("show")
         })
 
+        exitSidemenu[0].addEventListener("click", () => {
+            // console.log("Tutup bottom sheet")
+            sidemenu[0].classList.remove("show")
+        })
+
+        // Logout dari system
         function logout() {
             window.location.href = "logout.php"
         }
+
+
 
     </script>
 
