@@ -51,10 +51,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             color: black;
         }
 
-        .navigationBar > ul > li:first-child {
-            cursor: pointer;
-        }
-
         .header {
             max-width: 100%;
             height: 100px;
