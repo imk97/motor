@@ -90,7 +90,7 @@
 
     .btn-container button {
         width: 100%;
-        height: 40px;
+        height: 45px;
         margin: auto;
         background-color: black;
         color: #ffffff;
