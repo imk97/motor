@@ -72,7 +72,7 @@
     }
 
     .checklist-content p {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .checklist-content input {
@@ -127,11 +127,69 @@
                     <p>10w-50</p>
                     <input type="checkbox" name="engineOil" id="engineOil" onchange="status(engineOil)" value="engineOil">
                 </div>
-                <hr>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Cecair Penyejuk Radiator</h5>
+                    <p>-</p>
+                    <input type="checkbox" name="waterCoolant" id="waterCoolant" onchange="status(waterCoolant)" value="waterCoolant">
+                </div>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Rantai Pemacu</h5>
+                    <p>-</p>
+                    <input type="checkbox" name="rantaiPemacu" id="rantaiPemacu" onchange="status(rantaiPemacu)" value="rantaiPemacu">
+                </div>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Bendalir Brek</h5>
+                    <p>-</p>
+                    <input type="checkbox" name="bendalirBrek" id="bendalirBrek" onchange="status(bendalirBrek)" value="bendalirBrek">
+                </div>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Sistem Brek</h5>
+                    <p>-</p>
+                    <input type="checkbox" name="sistemBrek" id="sistemBrek" onchange="status(sistemBrek)" value="sistemBrek">
+                </div>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Suis Lampu Brek</h5>
+                    <p>-</p>
+                    <input type="checkbox" name="suisLampuBrek" id="suisLampuBrek" onchange="status(suisLampuBrek)" value="suisLampuBrek">
+                </div>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Lampu/Hon</h5>
+                    <p>-</p>
+                    <input type="checkbox" name="lampu_hone" id="lampu_hone" onchange="status(lampu_hone)" value="lampu_hone">
+                </div>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Sistem Pencengkam</h5>
+                    <p>-</p>
+                    <input type="checkbox" name="sistemPencengkam" id="sistemPencengkam" onchange="status(sistemPencengkam)" value="sistemPencengkam">
+                </div>
+                <!-- <hr> -->
+                <div class="checklist-content">
+                    <h5>Tayar Hadapan</h5>
+                    <p>90/80-17</p>
+                    <input type="checkbox" name="tayarHadapan" id="tayarHadapan" onchange="status(tayarHadapan)" value="tayarHadapan">
+                </div>
+                <div class="checklist-content">
+                    <h5>Tayar Belakang</h5>
+                    <p>120/70-17</p>
+                    <input type="checkbox" name="tayarBelakang" id="tayarBelakang" onchange="status(tayarBelakang)" value="tayarBelakang">
+                </div>
+                <div class="checklist-content">
+                    <h5>Palam Pencucuh</h5>
+                    <p>Tembaga/Platinum tunggal/Dwi Platinum/Iridium</p>
+                    <input type="checkbox" name="palamPencucuh" id="palamPencucuh" onchange="status(palamPencucuh)" value="palamPencucuh">
+                </div>
+                <!-- <hr> -->
                 <div class="checklist-content">
                     <h5>Sistem Penyejuk</h5>
                     <p>Pre-mix coolant</p>
-                    <input type="checkbox" name="waterCoolant" id="waterCoolant" onchange="status(waterCoolant)" value="waterCoolant">
+                    <input type="checkbox" name="sistemPenyejuk" id="sistemPenyejuk" onchange="status(sistemPenyejuk)" value="sistemPenyejuk">
                 </div>
             <!-- <hr><br> -->
         </div>
