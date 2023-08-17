@@ -24,6 +24,9 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             padding: 0;
             box-sizing: border-box;
             font-family: 'PT Serif', serif;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+            -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+            outline: none !important;
         }
 
         body {
@@ -169,6 +172,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         .bottomsheet-container.show {
             opacity: 1;
             pointer-events: auto;
+            transition: all .3s ease-in;
         }
 
         .bottomsheet-container .bottomsheet-overlay {
