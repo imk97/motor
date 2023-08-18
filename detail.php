@@ -123,72 +123,99 @@
         <div class="checklist-container">
             <h3>LIST</h3>
                 <div class="checklist-content">
-                    <h5>Minyak Enjin</h5>
-                    <p>10w-50</p>
+                    <label for="engineOil">
+                        Minyak Enjin
+                        <p>10w-50</p>
+                    </label>
                     <input type="checkbox" name="engineOil" id="engineOil" onchange="status(engineOil)" value="engineOil">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Cecair Penyejuk Radiator</h5>
-                    <p>-</p>
+                    <label for="waterCoolant">
+                        Cecair Penyejuk Radiator
+                        <p></p>
+                    </label>
+                    <!-- <h5>Cecair Penyejuk Radiator</h5> -->
                     <input type="checkbox" name="waterCoolant" id="waterCoolant" onchange="status(waterCoolant)" value="waterCoolant">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Rantai Pemacu</h5>
-                    <p>-</p>
+                    <label for="rantaiPemacu">
+                        Rantai Pemacu
+                        <p></p>
+                    </label>
                     <input type="checkbox" name="rantaiPemacu" id="rantaiPemacu" onchange="status(rantaiPemacu)" value="rantaiPemacu">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Bendalir Brek</h5>
-                    <p>-</p>
+                    <label for="bendalirBrek">
+                        Bendalir Brek
+                        <p></p>
+                    </label>
                     <input type="checkbox" name="bendalirBrek" id="bendalirBrek" onchange="status(bendalirBrek)" value="bendalirBrek">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Sistem Brek</h5>
-                    <p>-</p>
+                    <label for="sistemBrek">
+                        <label for="sistemBrek">
+                            Sistem Brek
+                            <p> </p>
+                        </label>                        
+                    </label> 
                     <input type="checkbox" name="sistemBrek" id="sistemBrek" onchange="status(sistemBrek)" value="sistemBrek">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Suis Lampu Brek</h5>
-                    <p>-</p>
+                    <label for="suisLampuBrek">
+                        Suis Lampu Brek
+                        <p></p>
+                    </label>                    
                     <input type="checkbox" name="suisLampuBrek" id="suisLampuBrek" onchange="status(suisLampuBrek)" value="suisLampuBrek">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Lampu/Hon</h5>
-                    <p>-</p>
+                    <label for="lampu_hone">
+                        Lampu/Hon
+                        <p></p>
+                    </label>
                     <input type="checkbox" name="lampu_hone" id="lampu_hone" onchange="status(lampu_hone)" value="lampu_hone">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Sistem Pencengkam</h5>
-                    <p>-</p>
+                    <label for="sistemPencengkam">
+                        Sistem Pencengkam
+                        <p></p>
+                    </label>                    
                     <input type="checkbox" name="sistemPencengkam" id="sistemPencengkam" onchange="status(sistemPencengkam)" value="sistemPencengkam">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Tayar Hadapan</h5>
-                    <p>90/80-17</p>
+                    <label for="tayarHadapan">
+                        Tayar Hadapan
+                        <p>90/80-17</p>
+                    </label>                    
                     <input type="checkbox" name="tayarHadapan" id="tayarHadapan" onchange="status(tayarHadapan)" value="tayarHadapan">
                 </div>
                 <div class="checklist-content">
-                    <h5>Tayar Belakang</h5>
-                    <p>120/70-17</p>
+                    <label for="tayarBelakang">
+                        Tayar Belakang
+                        <p>120/70-17</p>
+                    </label>
                     <input type="checkbox" name="tayarBelakang" id="tayarBelakang" onchange="status(tayarBelakang)" value="tayarBelakang">
                 </div>
                 <div class="checklist-content">
-                    <h5>Palam Pencucuh</h5>
-                    <p>Tembaga/Platinum tunggal/Dwi Platinum/Iridium</p>
+                    <label for="palamPencucuh">
+                        Palam Pencucuh
+                        <p>Tembaga/Platinum tunggal/Dwi Platinum/Iridium</p>
+                    </label>
                     <input type="checkbox" name="palamPencucuh" id="palamPencucuh" onchange="status(palamPencucuh)" value="palamPencucuh">
                 </div>
                 <!-- <hr> -->
                 <div class="checklist-content">
-                    <h5>Sistem Penyejuk</h5>
-                    <p>Pre-mix coolant</p>
+                    <label for="sistemPenyejuk">
+                        Sistem Penyejuk
+                        <p>Pre-mix coolant</p>
+                    </label>
                     <input type="checkbox" name="sistemPenyejuk" id="sistemPenyejuk" onchange="status(sistemPenyejuk)" value="sistemPenyejuk">
                 </div>
             <!-- <hr><br> -->
