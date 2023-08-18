@@ -54,6 +54,10 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             color: black;
         }
 
+        .navigationBar > ul > li:first-child {
+            cursor: pointer;
+        }
+
         .header {
             max-width: 100%;
             height: 100px;
@@ -168,7 +172,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         .bottomsheet-container.show {
             opacity: 1;
             pointer-events: auto;
-            transition: all .3s ease-in;
         }
 
         .bottomsheet-container .bottomsheet-overlay {
@@ -189,6 +192,13 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             height: 400px;
             padding: 5vh 20%;
             border-radius: 15px 15px 0px 0px;
+            position: relative;
+            bottom: -400px;
+        }
+
+        .bottomsheet-contents.show {
+            bottom: 0;
+            transition: all 1s ease;
         }
 
         .bottomsheet-body > form > label {
@@ -250,7 +260,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.2;
+            opacity: 0;
         }
 
         .sidemenu-container.show {
@@ -265,11 +275,15 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #272829;
             z-index: 1;
             position: fixed;
-            left: 0;
+            left: -300px;
             top: 0;
             bottom: 0;
             /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15); */
-            border-radius: 0px 12px 12px 0px;
+        }
+
+        .sidemenu-content.show {
+            left: 0px;
+            transition: all 0.8s ease;
         }
 
         .sidemenu-content > div {
@@ -277,7 +291,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             color: #ffffff;
             padding: 10px 20px;
         }
-
         .sidemenu-content ul li {
             color: #ffffff;
             padding: 10px 20px;
@@ -429,30 +442,36 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         let showBottomSheet = document.getElementById("addButton")
         let bottomSheet = document.getElementsByClassName("bottomsheet-container")
         let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
+        let containBottomSheet = document.getElementsByClassName("bottomsheet-contents")
 
         showBottomSheet.addEventListener("click", () => {
             // console.log("Berjaya tekan add button")
             bottomSheet[0].classList.add("show")
+            containBottomSheet[0].classList.add("show")
         })
 
         exitBottomSheet[0].addEventListener("click", () => {
             // console.log("Berjaya tutup bottom sheet")
             bottomSheet[0].classList.remove("show")
+            containBottomSheet[0].classList.remove("show")
         })
 
         // Buka dan tutup SIDE MENU bar
         let sidemenubar = document.getElementById("sidemenubar")
         let sidemenu = document.getElementsByClassName("sidemenu-container")
         let exitSidemenu = sidemenu[0].getElementsByClassName("sidemenu-overlay")
+        let contentSidemenu = document.getElementsByClassName("sidemenu-content")
 
         sidemenubar.addEventListener("click", () => {
             // console.log("sidemenu")
             sidemenu[0].classList.add("show")
+            contentSidemenu[0].classList.add("show")
         })
 
         exitSidemenu[0].addEventListener("click", () => {
             // console.log("Tutup bottom sheet")
             sidemenu[0].classList.remove("show")
+            contentSidemenu[0].classList.remove("show")
         })
 
         // Logout dari system
