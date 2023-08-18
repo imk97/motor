@@ -54,10 +54,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             color: black;
         }
 
-        .navigationBar > ul > li:first-child {
-            cursor: pointer;
-        }
-
         .header {
             max-width: 100%;
             height: 100px;
@@ -254,7 +250,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0;
+            opacity: 0.2;
         }
 
         .sidemenu-container.show {
@@ -263,41 +259,47 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         .sidemenu-container .sidemenu-content {
-            display: block;
+            /* display: block; */
             height: 100%;
             width: 300px;
-            background-color: black;
+            background-color: #272829;
             z-index: 1;
             position: fixed;
             left: 0;
             top: 0;
             bottom: 0;
-            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+            /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15); */
+            border-radius: 0px 12px 12px 0px;
         }
 
         .sidemenu-content > div {
-            text-align: center;
+            text-align: start;
             color: #ffffff;
-            padding: 10px 0px;
+            padding: 10px 20px;
         }
+
         .sidemenu-content ul li {
             color: #ffffff;
             padding: 10px 20px;
-            margin: 30px 0px;
+            /* margin: 30px 0px;  */
             cursor: pointer;
         }
 
         .sidemenu-content ul li i {
-            padding: 0px 30px;
+            padding-left: 0px;
+            padding-right: 20px;
+            padding-top: 0px;
+            padding-bottom: 0px;
         }
 
         .sidemenu-content > ul > li:last-child {
             position: absolute;
             bottom: 0px;
             width: 100%;
-            border-top: 1px solid whitesmoke;
-            padding-top: 20px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            /* border-top: 1px solid whitesmoke; */
+            /* padding-top: 20px; */
+            /* margin-bottom: 5px; */
         }
 
         @media screen and (max-width: 768px) {
@@ -345,6 +347,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         <div class="sidemenu-content">
             <div><?php echo $_SESSION["name"]; ?></div>
             <div><?php echo $_SESSION["email"]; ?></div>
+            <hr>
             <ul>
                 <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
                 <li id="vehicle"><i class="fa-solid fa-car"></i>Vehicle</li>
@@ -355,7 +358,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <div class="header">
-        <h2>2 Motor Maintenace</h2>
+        <h2>2 Motor Maintenace Yet</h2>
         <h3>in Scheduled</h3>
     </div>
 
