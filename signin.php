@@ -1,3 +1,11 @@
+<?php if (isset($_COOKIE["email"]) and isset($_COOKIE["pass"])) { ?>
+    <script>
+        var http = new XMLHttpRequest();
+        http.open("POST", "signin-process.php")
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        http.send("email=" + $_COOKIE["email"] + "&password=" + $_COOKIE["pass"])
+    </script>
+<?php } else { ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,7 +115,7 @@
         </div>
         <?php } ?>
 
-        <form action="./login-process.php" method="post">
+        <form action="./signin-process.php" method="post">
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
 
@@ -182,3 +190,4 @@
 
 </body>
 </html>
+<?php } ?>

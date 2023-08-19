@@ -11,6 +11,10 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
+
+        setcookie("email", $row["email"], time() + (60*60*24*30), "/signin.php", "", false, true);
+        setcookie("pass", $row["password"], time() + (60*60*24*30), "/signin.php", "", false, true);
+
         $_SESSION["name"] = $row["name"];
         $_SESSION["id"] = $row["id"];
         $_SESSION["email"] = $row["email"];
