@@ -1,3 +1,15 @@
+<?php
+// session_start();
+// // Check have permission to access the file or not
+// if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
+//     // Http code is authorized
+//     header('Location: signin.php', 401);
+// }
+$tarikh = $_POST["date"];
+$threshold = $_POST["threshold"];
+$service = $_POST["service"];
+// $tarikh = "20/08/2023";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +35,7 @@
         width: 100%;
         max-width: 100%;
         height: 50px;
-        background-color: #f5f5f5;
+        background-color: #ffffff;
         font-weight: bold;
         display: flex;
         align-items: center;
@@ -41,7 +53,7 @@
 
     .navigationBar button {
         border-radius: 12px;
-        background-color: #f5f5f5;
+        background-color: #ffffff;
         border: none;
         padding: 10px;
         cursor: pointer;
@@ -122,6 +134,11 @@
     <form action="./maintenance-process.php" method="get">
         <div class="checklist-container">
             <h3>LIST</h3>
+
+                <input type="hidden" name="tarikh" value="<?php echo $tarikh; ?>" >
+                <input type="hidden" name="threshold" value="<?php echo $threshold; ?>" >
+                <input type="hidden" name="service" value="<?php echo $service; ?>" >
+                
                 <div class="checklist-content">
                     <label for="engineOil">
                         Minyak Enjin

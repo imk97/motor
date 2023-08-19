@@ -30,14 +30,15 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         body {
-            background-color: #f5f5f5;
+            /* background-color: #f5f5f5; */
+            background-color: #ffffff;
         }
 
         .navigationBar {
             max-width: 100%;
             height: 50px;
             top: 0;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
             padding: 15px 20px;
             font-weight: bold;
             /* position: sticky;
@@ -82,7 +83,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             height: 100px;
             border-radius: 12px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            background-color: white;
+            background-color: #f5f5f5;
             padding: 10px;
             display: flex;
         }
@@ -207,7 +208,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             font-weight: bold;
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=datetime] {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=date] {
             text-indent: 5px;
             border-style: none none solid none;
             border-radius: 0px;
@@ -235,7 +236,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         #addButton {
             cursor: pointer;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
         }
 
         .sidemenu-container {
@@ -416,9 +417,9 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
                 <h2 style="text-align: center; padding-top: 10px">Maintenance Detail</h2>
 
-                <form action="" method="post">
+                <form action="./detail.php" method="post">
                     <label for="date">Date</label>
-                    <input type="datetime" name="date" id="date">
+                    <input type="date" name="date" id="date">
 
                     <label for="threshold">Threshold <bold>(km)</bold></label>
                     <input type="number" name="threshold" id="threshold">
@@ -426,7 +427,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                     <label for="service">Type of service</label>
                     <input type="text" name="service" id="service">
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">Next</button>
                 </form>
             </div>
         </div>
