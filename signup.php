@@ -72,6 +72,14 @@
             text-decoration: none;
         }
 
+        .alert {
+            background-color: #f44336;
+            color: white;
+            padding: 5px;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
         @media screen and (max-width: 768px) {
             .container {
                 top: 20%;
@@ -90,7 +98,14 @@
 <body>
     <div class="container">
         <h1>Sign up</h1>
-        <form action="javascript:void(0)" method="post">
+
+        <?php if (isset($_GET["error"])) {?>
+        <div class="alert">
+            <?php echo $_GET["error"]; ?>
+        </div>
+        <?php } ?>
+
+        <form action="./signup-process.php" method="post">
             <label for="name">Name</label>
             <input type="text" name="name" id="name">
             <label for="email">Email</label>
