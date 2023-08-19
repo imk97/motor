@@ -127,34 +127,29 @@
                         Minyak Enjin
                         <p>10w-50</p>
                     </label>
-                    <input type="checkbox" name="engineOil" id="engineOil" onchange="status(engineOil)" value="engineOil">
+                    <input type="checkbox" name="engineOil" id="engineOil" value="engineOil">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="waterCoolant">
                         Cecair Penyejuk Radiator
                         <p></p>
                     </label>
-                    <!-- <h5>Cecair Penyejuk Radiator</h5> -->
-                    <input type="checkbox" name="waterCoolant" id="waterCoolant" onchange="status(waterCoolant)" value="waterCoolant">
+                    <input type="checkbox" name="waterCoolant" id="waterCoolant" value="waterCoolant">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="rantaiPemacu">
                         Rantai Pemacu
                         <p></p>
                     </label>
-                    <input type="checkbox" name="rantaiPemacu" id="rantaiPemacu" onchange="status(rantaiPemacu)" value="rantaiPemacu">
+                    <input type="checkbox" name="rantaiPemacu" id="rantaiPemacu" value="rantaiPemacu">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="bendalirBrek">
                         Bendalir Brek
                         <p></p>
                     </label>
-                    <input type="checkbox" name="bendalirBrek" id="bendalirBrek" onchange="status(bendalirBrek)" value="bendalirBrek">
+                    <input type="checkbox" name="bendalirBrek" id="bendalirBrek" value="bendalirBrek">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="sistemBrek">
                         <label for="sistemBrek">
@@ -162,74 +157,62 @@
                             <p> </p>
                         </label>                        
                     </label> 
-                    <input type="checkbox" name="sistemBrek" id="sistemBrek" onchange="status(sistemBrek)" value="sistemBrek">
+                    <input type="checkbox" name="sistemBrek" id="sistemBrek" value="sistemBrek">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="suisLampuBrek">
                         Suis Lampu Brek
                         <p></p>
                     </label>                    
-                    <input type="checkbox" name="suisLampuBrek" id="suisLampuBrek" onchange="status(suisLampuBrek)" value="suisLampuBrek">
+                    <input type="checkbox" name="suisLampuBrek" id="suisLampuBrek" value="suisLampuBrek">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="lampu_hone">
                         Lampu/Hon
                         <p></p>
                     </label>
-                    <input type="checkbox" name="lampu_hone" id="lampu_hone" onchange="status(lampu_hone)" value="lampu_hone">
+                    <input type="checkbox" name="lampu_hone" id="lampu_hone" value="lampu_hone">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="sistemPencengkam">
                         Sistem Pencengkam
                         <p></p>
                     </label>                    
-                    <input type="checkbox" name="sistemPencengkam" id="sistemPencengkam" onchange="status(sistemPencengkam)" value="sistemPencengkam">
+                    <input type="checkbox" name="sistemPencengkam" id="sistemPencengkam" value="sistemPencengkam">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="tayarHadapan">
                         Tayar Hadapan
                         <p>90/80-17</p>
                     </label>                    
-                    <input type="checkbox" name="tayarHadapan" id="tayarHadapan" onchange="status(tayarHadapan)" value="tayarHadapan">
+                    <input type="checkbox" name="tayarHadapan" id="tayarHadapan" value="tayarHadapan">
                 </div>
                 <div class="checklist-content">
                     <label for="tayarBelakang">
                         Tayar Belakang
                         <p>120/70-17</p>
                     </label>
-                    <input type="checkbox" name="tayarBelakang" id="tayarBelakang" onchange="status(tayarBelakang)" value="tayarBelakang">
+                    <input type="checkbox" name="tayarBelakang" id="tayarBelakang" value="tayarBelakang">
                 </div>
                 <div class="checklist-content">
                     <label for="palamPencucuh">
                         Palam Pencucuh
                         <p>Tembaga/Platinum tunggal/Dwi Platinum/Iridium</p>
                     </label>
-                    <input type="checkbox" name="palamPencucuh" id="palamPencucuh" onchange="status(palamPencucuh)" value="palamPencucuh">
+                    <input type="checkbox" name="palamPencucuh" id="palamPencucuh" value="palamPencucuh">
                 </div>
-                <!-- <hr> -->
                 <div class="checklist-content">
                     <label for="sistemPenyejuk">
                         Sistem Penyejuk
                         <p>Pre-mix coolant</p>
                     </label>
-                    <input type="checkbox" name="sistemPenyejuk" id="sistemPenyejuk" onchange="status(sistemPenyejuk)" value="sistemPenyejuk">
+                    <input type="checkbox" name="sistemPenyejuk" id="sistemPenyejuk" value="sistemPenyejuk">
                 </div>
-            <!-- <hr><br> -->
         </div>
         <div class="btn-container">
-            <button type="submit">Save</button>
+            <button type="submit" id="submit">Save</button>
         </div>
     </form>
 
-    
 </body>
-<script>
-    function status(checkbox) {
-        console.log(checkbox.value)
-    }
-</script>
 </html>
