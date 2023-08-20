@@ -1,9 +1,16 @@
-<?php if (isset($_COOKIE["email"]) and isset($_COOKIE["pass"])) { ?>
+<?php if (isset($_COOKIE["auth"])) { ?>
     <script>
         var http = new XMLHttpRequest();
+        http.onload = function() {
+            // this.responseURL = "http://localhost/motor/signin.php?error=Incorrect credential."
+            // console.log(this.responseURL)
+
+            window.location.replace(this.responseURL)
+        }
         http.open("POST", "signin-process.php")
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-        http.send("email=" + $_COOKIE["email"] + "&password=" + $_COOKIE["pass"])
+        // http.send("email=" + "<?php //echo $_COOKIE["email"]; ?>" + "&password=" + "<?php //echo $_COOKIE["pass"]; ?>")
+        http.send(decodeURIComponent("<?php echo $_COOKIE["auth"]; ?>"))
     </script>
 <?php } else { ?>
 <!DOCTYPE html>
