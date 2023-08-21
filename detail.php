@@ -8,6 +8,7 @@
 $tarikh = $_POST["date"];
 $threshold = $_POST["threshold"];
 $service = $_POST["service"];
+$kenderaan = $_POST["vehicle"];
 // $tarikh = "20/08/2023";
 ?>
 <!DOCTYPE html>
@@ -127,7 +128,7 @@ $service = $_POST["service"];
 </style>
 <body>
     <div class="navigationBar">
-        <button onclick="history.back()"><i class="fas fa-arrow-left"></i></button>
+        <button onclick="window.location.href='index.php'"><i class="fas fa-arrow-left"></i></button>
         <div>Maintenance Detail</div>
     </div>
 

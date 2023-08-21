@@ -41,10 +41,15 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #ffffff;
             padding: 15px 20px;
             font-weight: bold;
+            /* position: sticky; */
             /* position: sticky;
             position: -webkit-sticky;
             overflow: hidden; */
         }
+
+        /* .navigationBar::after {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);           
+        } */
 
         ul {
             list-style-type: none;
@@ -82,10 +87,11 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             max-width: 100%;
             height: 100px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
             background-color: #f5f5f5;
             padding: 10px;
             display: flex;
+            /* cursor: pointer; */
         }
 
         .card-contain > div#left {
@@ -125,20 +131,28 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             padding: 5px 20%;
             margin: auto;
             display: flex;
+            justify-content: space-evenly;
         }
 
         .card-category {
-            width: 100%;
+            width: 100px;
             /* height: 30px; */
             /* position: absolute; */
             /* border: 3px solid salmon; */
             text-align: center;
             /* margin: 0px 10px; */
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
             padding: 5px 0px;
-            margin: 5px;
+            /* margin: 5px; */
             border-radius: 12px;
             font-weight: bold;
+            border: 0.5px solid black;
+            cursor: pointer;
+        }
+
+        .card-category.active {
+            background-color: #272829;
+            color: white;
         }
 
         .search-container {
@@ -190,16 +204,18 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         .bottomsheet-container .bottomsheet-contents {
             background: #f5f5f5;
-            height: 400px;
+            height: 470px;
             padding: 5vh 20%;
             border-radius: 15px 15px 0px 0px;
-            position: relative;
+            position: fixed;
+            left: 0;
+            right: 0;
             bottom: -400px;
         }
 
         .bottomsheet-contents.show {
             bottom: 0;
-            transition: all 1s ease;
+            transition: all 0.5s linear;
         }
 
         .bottomsheet-body > form > label {
@@ -208,7 +224,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             font-weight: bold;
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=date] {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=date], select {
             text-indent: 5px;
             border-style: none none solid none;
             border-radius: 0px;
@@ -377,14 +393,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <!-- Search -->
-    <div class="search-container">
+    <!-- <div class="search-container">
         <input type="text" name="search" id="search" placeholder="Search..">
-        <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
-    </div>
+        <!-- <button type="submit"><i class="fa fa-search"></i></button>
+    </div> -->
 
     <!-- category - itmam/1/8/2023 -->
     <div class="category">
-        <div class="card-category">All</div>
+        <div class="card-category active">All</div>
         <div class="card-category">Upcoming</div>
         <div class="card-category">Completed</div>
     </div>
@@ -426,6 +442,12 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 
                     <label for="service">Type of service</label>
                     <input type="text" name="service" id="service">
+
+                    <label for="noplate">No plate</label>
+                    <select name="vehicle" id="noplate">
+                        <option value=""></option>
+                        <option value="jug3455">JUG 3455</option>
+                    </select>
 
                     <button type="submit">Next</button>
                 </form>
@@ -479,8 +501,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         function logout() {
             window.location.href = "logout.php"
         }
-
-
 
     </script>
 
