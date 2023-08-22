@@ -41,6 +41,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #ffffff;
             padding: 15px 20px;
             font-weight: bold;
+            box-shadow: 0 0px 4px 0 rgba(0,0,0,0.2);
             /* position: sticky; */
             /* position: sticky;
             position: -webkit-sticky;
@@ -62,6 +63,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         .navigationBar > ul > li:first-child {
             cursor: pointer;
+        }
+
+        .navigationBar > ul > li:last-child {
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* padding-right: 5px; */
         }
 
         .header {
@@ -219,13 +228,13 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             transition: all 0.5s linear;
         }
 
-        .bottomsheet-body > form > label {
+        .bottomsheet-body > label {
             display: block;
             padding: 10px 0px;
             font-weight: bold;
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=date], select {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > input[type=number], input[type=text], input[type=date], select {
             display: block;
             text-indent: 5px;
             border-style: none none solid none;
@@ -239,7 +248,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             /* position: relative; */
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
             margin: auto;
             width: 150px;
             height: 40px;
@@ -337,6 +346,12 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         @media screen and (max-width: 768px) {
+
+            .navigationBar {
+                padding-left: 3vw;
+                padding-right: 3vw;
+            }
+
             .card-container {
                 padding: 0.5vh 3vw;
             }
@@ -359,7 +374,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 padding: 15px 3vw;
             }
 
-            .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+            .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
                 width: 100%;
             }
             
@@ -438,7 +453,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
                 <h2 style="text-align: center; padding-top: 10px">Maintenance Detail</h2>
 
-                <form action="./detail.php" method="post">
+                <!-- <form action="./detail.php" method="post"> -->
 
                     <label for="threshold">Threshold <bold>(km)</bold></label>
                     <input type="number" name="threshold" id="threshold">
@@ -452,8 +467,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                         <option value="jug3455">JUG 3455</option>
                     </select>
 
-                    <button type="submit">Next</button>
-                </form>
+                    <button type="submit" onclick="submit()">Next</button>
+                <!-- </form> -->
             </div>
         </div>
     </div>
@@ -503,6 +518,22 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         // Logout dari system
         function logout() {
             window.location.href = "logout.php"
+        }
+
+        function submit() {
+            let threshold = document.getElementById("threshold").value
+            let service = document.getElementById("service").value
+            let plate = document.getElementById("noplate").value
+            // console.log(threshold)
+
+            document.cookie = "tmpDetail="+threshold
+
+            window.location.href = "detail.php"
+        }
+
+        window.onload = function() {
+            let threshold = "<?php echo $tmpDetail = (isset($_COOKIE["tmpDetail"])) ? $_COOKIE["tmpDetail"] : null ;?>"
+            document.getElementById("threshold").value = threshold
         }
 
     </script>
