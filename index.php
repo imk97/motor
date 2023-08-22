@@ -204,13 +204,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         .bottomsheet-container .bottomsheet-contents {
             background: #f5f5f5;
-            height: 470px;
+            height: 400px;
             padding: 5vh 20%;
             border-radius: 15px 15px 0px 0px;
             position: fixed;
             left: 0;
             right: 0;
             bottom: -400px;
+            width: 100%;
         }
 
         .bottomsheet-contents.show {
@@ -225,6 +226,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=date], select {
+            display: block;
             text-indent: 5px;
             border-style: none none solid none;
             border-radius: 0px;
@@ -233,6 +235,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #f5f5f5;
             width: 100%;
             height: 40px;
+            min-width: 98%;
+            /* position: relative; */
         }
 
         .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
@@ -358,6 +362,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
                 width: 100%;
             }
+            
         }
 
     </style>
@@ -434,8 +439,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 <h2 style="text-align: center; padding-top: 10px">Maintenance Detail</h2>
 
                 <form action="./detail.php" method="post">
-                    <label for="date">Date</label>
-                    <input type="date" name="date" id="date">
 
                     <label for="threshold">Threshold <bold>(km)</bold></label>
                     <input type="number" name="threshold" id="threshold">

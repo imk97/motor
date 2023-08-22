@@ -5,7 +5,6 @@
 //     // Http code is authorized
 //     header('Location: signin.php', 401);
 // }
-$tarikh = $_POST["date"];
 $threshold = $_POST["threshold"];
 $service = $_POST["service"];
 $kenderaan = $_POST["vehicle"];
@@ -96,9 +95,10 @@ $kenderaan = $_POST["vehicle"];
 
     .btn-container {
         width: 100%;
-        position: absolute;
+        position: fixed;
         bottom: 0;
         padding: 15px 20%;
+        background-color: #ffffff;
     }
 
     .btn-container button {
@@ -108,6 +108,15 @@ $kenderaan = $_POST["vehicle"];
         background-color: black;
         color: #ffffff;
         border-radius: 10px;
+    }
+
+    .last-content {
+        height: 100px;
+        width: 100%;
+    }
+
+    p {
+        word-wrap: break-word;
     }
 
     @media screen and (max-width: 768px) {
@@ -147,6 +156,7 @@ $kenderaan = $_POST["vehicle"];
                     </label>
                     <input type="checkbox" name="engineOil" id="engineOil" value="engineOil">
                 </div>
+                <hr>
                 <div class="checklist-content">
                     <label for="waterCoolant">
                         Cecair Penyejuk Radiator
@@ -226,6 +236,7 @@ $kenderaan = $_POST["vehicle"];
                     </label>
                     <input type="checkbox" name="sistemPenyejuk" id="sistemPenyejuk" value="sistemPenyejuk">
                 </div>
+                <div class="last-content"></div>
         </div>
         <div class="btn-container">
             <button type="submit" id="submit">Save</button>
