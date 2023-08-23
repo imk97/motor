@@ -24,6 +24,8 @@
             justify-content: center;
             align-items: center;
             background-color: #ffffff;
+            width: 100vw;
+            height: 100vh;
         }
 
         .container {
@@ -32,9 +34,9 @@
             height: 550px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
             max-width: 350px;
-            position: absolute;
+            /* position: absolute;
             top: 25%;
-            bottom: 25%;
+            bottom: 25%; */
             padding: 25px 30px;
             background-color: #f5f5f5;
         }
@@ -81,10 +83,10 @@
         }
 
         @media screen and (max-width: 768px) {
-            .container {
+            /* .container {
                 top: 20%;
                 bottom: 20%;
-            }
+            } */
         }
 
         @media screen and (max-width: 280px) {
@@ -111,7 +113,7 @@
             <label for="email">Email</label>
             <input type="email" name="email" id="email">
             <label for="pass">Password</label>
-            <input type="password" name="password" id="pass">
+            <input type="password" name="password" id="pass" onchange="sanitize()">
             <label for="confPassword">Confirm Password</label>
             <input type="password" name="confPass" id="confPassword">
             <button type="submit">Signup</button>
@@ -161,22 +163,16 @@
             return JSON.parse(jsonPayload);
         }
 
-        // Check user dah pernah login atau tak
-        // window.onload = function() {
-        //     console.log("Hello")
-        //     google.accounts.id.initialize({
-        //         client_id: '37952741570-0q2t45pokk735dtug585vt760pnqvj0v.apps.googleusercontent.com',
-        //         callback: handleCredentialResponse,
-        //         auto_select: true
-
-        //     });
-        //     google.accounts.id.prompt();
-        // }
-
-        // const logout = document.getElementById('signout_button');
-        // logout.onclick = () => {
-        //     google.accounts.id.disableAutoSelect();
-        // }
+        function sanitize() {
+            let pass = document.getElementById("pass").value
+            let container = document.getElementsByClassName("container")[0]
+            if (pass.length < 8) {
+                console.log("Password must be at least 8 characters")
+                container.style.height = "600px"
+            } else {
+                container.style.height = "550px"
+            }
+        }
     </script>
 
 </body>
