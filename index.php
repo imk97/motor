@@ -419,11 +419,11 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div> -->
 
     <!-- category - itmam/1/8/2023 -->
-    <div class="category">
+    <!-- <div class="category">
         <div class="card-category active">All</div>
         <div class="card-category">Upcoming</div>
         <div class="card-category">Completed</div>
-    </div>
+    </div> -->
 
     <div class="title">
         <h3>Select</h3>
