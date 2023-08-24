@@ -308,6 +308,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             left: -300px;
             top: 0;
             bottom: 0;
+            border-radius: 0px 12px 12px 0px;
             /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15); */
         }
 
