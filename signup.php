@@ -24,6 +24,8 @@
             justify-content: center;
             align-items: center;
             background-color: #ffffff;
+            width: 100vw;
+            height: 100vh;
         }
 
         .container {
@@ -32,9 +34,9 @@
             height: 550px;
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
             max-width: 350px;
-            position: absolute;
+            /* position: absolute;
             top: 25%;
-            bottom: 25%;
+            bottom: 25%; */
             padding: 25px 30px;
             background-color: #f5f5f5;
         }
@@ -81,10 +83,10 @@
         }
 
         @media screen and (max-width: 768px) {
-            .container {
+            /* .container {
                 top: 20%;
                 bottom: 20%;
-            }
+            } */
         }
 
         @media screen and (max-width: 280px) {
@@ -107,13 +109,13 @@
 
         <form action="./signup-process.php" method="post">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" required>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
             <label for="pass">Password</label>
-            <input type="password" name="password" id="pass">
+            <input type="password" name="password" id="pass" onchange="sanitize()" required>
             <label for="confPassword">Confirm Password</label>
-            <input type="password" name="confPass" id="confPassword">
+            <input type="password" name="confPass" id="confPassword" required>
             <button type="submit">Signup</button>
             
             <!-- Google login -->
@@ -128,55 +130,34 @@
 
     <script>
         function handleCredentialResponse(response) {
-            // console.log("Encoded JWT ID token: " + response.credential);
-            // console.log(response)
 
-            // decodeJwtResponse() is a custom function defined by you
-            // to decode the credential response.
-            const responsePayload = decodeJwtResponse(response.credential);
-
-            // console.log(responsePayload)
-
-            document.getElementById("id").innerHTML = responsePayload.sub
-            document.getElementById("name").innerHTML = responsePayload.name
-            document.getElementById("email").innerHTML = responsePayload.email
-            document.getElementById("img").setAttribute("src", responsePayload.picture)
-
-            // console.log("ID: " + responsePayload.sub);
-            // console.log('Full Name: ' + responsePayload.name);
-            // console.log('Given Name: ' + responsePayload.given_name);
-            // console.log('Family Name: ' + responsePayload.family_name);
-            // console.log("Image URL: " + responsePayload.picture);
-            // console.log("Email: " + responsePayload.email);
-
+            var xhttp = new XMLHttpRequest()
+            xhttp.onload = function() {
+                // console.log(JSON.parse(this.responseText))
+                let data = JSON.parse(this.responseText)
+                if (data != null) {
+                    // console.log(data)
+                    console.log(data.id)
+                    console.log(data.name)
+                    console.log(data.email)
+                    console.log(data.gambar)
+                }
+            }
+            xhttp.open("POST", "google-verify.php")
+            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            xhttp.send("token=" + response.credential)
         }
 
-        function decodeJwtResponse(token) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-
-            return JSON.parse(jsonPayload);
+        function sanitize() {
+            let pass = document.getElementById("pass").value
+            let container = document.getElementsByClassName("container")[0]
+            if (pass.length < 8) {
+                console.log("Password must be at least 8 characters")
+                container.style.height = "600px"
+            } else {
+                container.style.height = "550px"
+            }
         }
-
-        // Check user dah pernah login atau tak
-        // window.onload = function() {
-        //     console.log("Hello")
-        //     google.accounts.id.initialize({
-        //         client_id: '37952741570-0q2t45pokk735dtug585vt760pnqvj0v.apps.googleusercontent.com',
-        //         callback: handleCredentialResponse,
-        //         auto_select: true
-
-        //     });
-        //     google.accounts.id.prompt();
-        // }
-
-        // const logout = document.getElementById('signout_button');
-        // logout.onclick = () => {
-        //     google.accounts.id.disableAutoSelect();
-        // }
     </script>
 
 </body>
