@@ -3,9 +3,12 @@ session_start();
 $name = $_POST["name"];
 $email = $_POST["email"];
 $pass = $_POST["password"];
-$confPass = $_POST["confPass"];
+$confPass = (isset($_POST["confPass"])) ? $_POST["confPass"] : null;
 
-$check = strcasecmp($pass, $confPass);
+if ($confPass != null) {
+    $check = strcasecmp($pass, $confPass);
+}
+
 include "./db.php";
 
 if ($check == 0) {

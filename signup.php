@@ -109,13 +109,13 @@
 
         <form action="./signup-process.php" method="post">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" required>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" required>
             <label for="pass">Password</label>
-            <input type="password" name="password" id="pass" onchange="sanitize()">
+            <input type="password" name="password" id="pass" onchange="sanitize()" required>
             <label for="confPassword">Confirm Password</label>
-            <input type="password" name="confPass" id="confPassword">
+            <input type="password" name="confPass" id="confPassword" required>
             <button type="submit">Signup</button>
             
             <!-- Google login -->
@@ -130,37 +130,22 @@
 
     <script>
         function handleCredentialResponse(response) {
-            // console.log("Encoded JWT ID token: " + response.credential);
-            // console.log(response)
 
-            // decodeJwtResponse() is a custom function defined by you
-            // to decode the credential response.
-            const responsePayload = decodeJwtResponse(response.credential);
-
-            // console.log(responsePayload)
-
-            document.getElementById("id").innerHTML = responsePayload.sub
-            document.getElementById("name").innerHTML = responsePayload.name
-            document.getElementById("email").innerHTML = responsePayload.email
-            document.getElementById("img").setAttribute("src", responsePayload.picture)
-
-            // console.log("ID: " + responsePayload.sub);
-            // console.log('Full Name: ' + responsePayload.name);
-            // console.log('Given Name: ' + responsePayload.given_name);
-            // console.log('Family Name: ' + responsePayload.family_name);
-            // console.log("Image URL: " + responsePayload.picture);
-            // console.log("Email: " + responsePayload.email);
-
-        }
-
-        function decodeJwtResponse(token) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-
-            return JSON.parse(jsonPayload);
+            var xhttp = new XMLHttpRequest()
+            xhttp.onload = function() {
+                // console.log(JSON.parse(this.responseText))
+                let data = JSON.parse(this.responseText)
+                if (data != null) {
+                    // console.log(data)
+                    console.log(data.id)
+                    console.log(data.name)
+                    console.log(data.email)
+                    console.log(data.gambar)
+                }
+            }
+            xhttp.open("POST", "google-verify.php")
+            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            xhttp.send("token=" + response.credential)
         }
 
         function sanitize() {
