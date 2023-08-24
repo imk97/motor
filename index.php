@@ -30,20 +30,27 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         body {
-            background-color: #f5f5f5;
+            /* background-color: #f5f5f5; */
+            background-color: #ffffff;
         }
 
         .navigationBar {
             max-width: 100%;
             height: 50px;
             top: 0;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
             padding: 15px 20px;
             font-weight: bold;
+            box-shadow: 0 0px 4px 0 rgba(0,0,0,0.2);
+            /* position: sticky; */
             /* position: sticky;
             position: -webkit-sticky;
             overflow: hidden; */
         }
+
+        /* .navigationBar::after {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);           
+        } */
 
         ul {
             list-style-type: none;
@@ -56,6 +63,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         .navigationBar > ul > li:first-child {
             cursor: pointer;
+        }
+
+        .navigationBar > ul > li:last-child {
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* padding-right: 5px; */
         }
 
         .header {
@@ -81,10 +96,11 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             max-width: 100%;
             height: 100px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            background-color: white;
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+            background-color: #f5f5f5;
             padding: 10px;
             display: flex;
+            /* cursor: pointer; */
         }
 
         .card-contain > div#left {
@@ -124,20 +140,28 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             padding: 5px 20%;
             margin: auto;
             display: flex;
+            justify-content: space-evenly;
         }
 
         .card-category {
-            width: 100%;
+            width: 100px;
             /* height: 30px; */
             /* position: absolute; */
             /* border: 3px solid salmon; */
             text-align: center;
             /* margin: 0px 10px; */
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
             padding: 5px 0px;
-            margin: 5px;
+            /* margin: 5px; */
             border-radius: 12px;
             font-weight: bold;
+            border: 0.5px solid black;
+            cursor: pointer;
+        }
+
+        .card-category.active {
+            background-color: #272829;
+            color: white;
         }
 
         .search-container {
@@ -192,22 +216,26 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             height: 400px;
             padding: 5vh 20%;
             border-radius: 15px 15px 0px 0px;
-            position: relative;
+            position: fixed;
+            left: 0;
+            right: 0;
             bottom: -400px;
+            width: 100%;
         }
 
         .bottomsheet-contents.show {
             bottom: 0;
-            transition: all 1s ease;
+            transition: all 0.5s linear;
         }
 
-        .bottomsheet-body > form > label {
+        .bottomsheet-body > label {
             display: block;
             padding: 10px 0px;
             font-weight: bold;
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > input[type=number], input[type=text], input[type=datetime] {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > input[type=number], input[type=text], input[type=date], select {
+            display: block;
             text-indent: 5px;
             border-style: none none solid none;
             border-radius: 0px;
@@ -216,9 +244,11 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #f5f5f5;
             width: 100%;
             height: 40px;
+            min-width: 98%;
+            /* position: relative; */
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
             margin: auto;
             width: 150px;
             height: 40px;
@@ -235,7 +265,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         #addButton {
             cursor: pointer;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
         }
 
         .sidemenu-container {
@@ -316,6 +346,12 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         @media screen and (max-width: 768px) {
+
+            .navigationBar {
+                padding-left: 3vw;
+                padding-right: 3vw;
+            }
+
             .card-container {
                 padding: 0.5vh 3vw;
             }
@@ -338,9 +374,10 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 padding: 15px 3vw;
             }
 
-            .bottomsheet-container .bottomsheet-contents .bottomsheet-body > form > button {
+            .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
                 width: 100%;
             }
+            
         }
 
     </style>
@@ -376,17 +413,17 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <!-- Search -->
-    <div class="search-container">
+    <!-- <div class="search-container">
         <input type="text" name="search" id="search" placeholder="Search..">
-        <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
-    </div>
+        <!-- <button type="submit"><i class="fa fa-search"></i></button>
+    </div> -->
 
     <!-- category - itmam/1/8/2023 -->
-    <div class="category">
-        <div class="card-category">All</div>
+    <!-- <div class="category">
+        <div class="card-category active">All</div>
         <div class="card-category">Upcoming</div>
         <div class="card-category">Completed</div>
-    </div>
+    </div> -->
 
     <div class="title">
         <h3>Select</h3>
@@ -416,9 +453,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
                 <h2 style="text-align: center; padding-top: 10px">Maintenance Detail</h2>
 
-                <form action="" method="post">
-                    <label for="date">Date</label>
-                    <input type="datetime" name="date" id="date">
+                <!-- <form action="./detail.php" method="post"> -->
 
                     <label for="threshold">Threshold <bold>(km)</bold></label>
                     <input type="number" name="threshold" id="threshold">
@@ -426,8 +461,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                     <label for="service">Type of service</label>
                     <input type="text" name="service" id="service">
 
-                    <button type="submit">Submit</button>
-                </form>
+                    <label for="noplate">No plate</label>
+                    <select name="vehicle" id="noplate">
+                        <option value=""></option>
+                        <option value="jug3455">JUG 3455</option>
+                    </select>
+
+                    <button type="submit" onclick="submit()">Next</button>
+                <!-- </form> -->
             </div>
         </div>
     </div>
@@ -479,7 +520,21 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             window.location.href = "logout.php"
         }
 
+        function submit() {
+            let threshold = document.getElementById("threshold").value
+            let service = document.getElementById("service").value
+            let plate = document.getElementById("noplate").value
+            // console.log(threshold)
 
+            document.cookie = "tmpDetail="+threshold
+
+            window.location.href = "detail.php"
+        }
+
+        window.onload = function() {
+            let threshold = "<?php echo $tmpDetail = (isset($_COOKIE["tmpDetail"])) ? $_COOKIE["tmpDetail"] : null ;?>"
+            document.getElementById("threshold").value = threshold
+        }
 
     </script>
 
