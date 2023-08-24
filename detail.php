@@ -315,8 +315,9 @@ session_start();
 <script>
     function onBack() {
         console.log("Anda pasti ke laman utama")
-        document.cookie = "tmpDetail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+        document.cookie = "tmpDetail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/motor;"
         history.back()
+        // window.location.href = "index.php"
 
     }
 </script>

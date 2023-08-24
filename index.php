@@ -526,15 +526,17 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             let service = document.getElementById("service").value
             let plate = document.getElementById("noplate").value
             // console.log(threshold)
-
-            document.cookie = "tmpDetail="+threshold
+            let now = new Date()
+            // console.log(now)
+            // console.log(now.getMinutes())
+            // console.log(now.getMinutes() + (5))
+            let expireTime = now.getMinutes() + 1
+            now.setMinutes(expireTime)
+            console.log(now)
+            // console.log(now.toUTCString())
+            document.cookie = "tmpDetail="+threshold+";expires="+ now.toUTCString()
 
             window.location.href = "detail.php"
-        }
-
-        window.onload = function() {
-            let threshold = "<?php echo $tmpDetail = (isset($_COOKIE["tmpDetail"])) ? $_COOKIE["tmpDetail"] : null ;?>"
-            document.getElementById("threshold").value = threshold
         }
 
     </script>
