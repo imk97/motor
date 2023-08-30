@@ -14,7 +14,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motor maintenance</title>
 
-    <script src="https://kit.fontawesome.com/50f334ce21.js" crossorigin="anonymous"></script>    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://kit.fontawesome.com/50f334ce21.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 
@@ -24,8 +25,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             padding: 0;
             box-sizing: border-box;
             font-family: 'PT Serif', serif;
-            -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
-            -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+            -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
             outline: none !important;
         }
 
@@ -41,7 +42,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #ffffff;
             padding: 15px 20px;
             font-weight: bold;
-            box-shadow: 0 0px 4px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
             /* position: sticky; */
             /* position: sticky;
             position: -webkit-sticky;
@@ -56,16 +57,16 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             list-style-type: none;
         }
 
-        .navigationBar > ul > li {
+        .navigationBar>ul>li {
             float: left;
             color: black;
         }
 
-        .navigationBar > ul > li:first-child {
+        .navigationBar>ul>li:first-child {
             cursor: pointer;
         }
 
-        .navigationBar > ul > li:last-child {
+        .navigationBar>ul>li:last-child {
             width: 20px;
             display: flex;
             align-items: center;
@@ -79,11 +80,11 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             padding: 30px;
         }
 
-        .header > * {
+        .header>* {
             text-align: center;
         }
 
-        .title > h3 {
+        .title>h3 {
             font-weight: bold;
             padding: 5px 20%;
         }
@@ -103,30 +104,32 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             /* cursor: pointer; */
         }
 
-        .card-contain > div#left {
+        .card-contain>div#left {
             width: 90%;
         }
 
-        .card-contain > div#right {
+        .card-contain>div#right {
             width: 10%;
             position: relative;
         }
 
-        .card-contain > div > p, h4, a {
+        .card-contain>div>p,
+        h4,
+        a {
             height: auto;
             padding: 2px;
         }
 
-        .card-contain > div > p {
+        .card-contain>div>p {
             font-size: 12px;
         }
 
-        .card-contain > div > #noline {
+        .card-contain>div>#noline {
             text-decoration: none;
             color: grey;
         }
 
-        .card-contain > div > img {
+        .card-contain>div>img {
             /* display: block;
             margin-left: auto;
             margin-right: 15px;
@@ -171,7 +174,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             margin-bottom: 2vh;
         }
 
-        .search-container > input[type=text] {
+        .search-container>input[type=text] {
             width: 100%;
             height: 40px;
             border: none;
@@ -206,7 +209,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.85);
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: -1;
             opacity: 0.3;
         }
@@ -228,13 +231,16 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             transition: all 0.5s linear;
         }
 
-        .bottomsheet-body > label {
+        .bottomsheet-body>label {
             display: block;
             padding: 10px 0px;
             font-weight: bold;
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > input[type=number], input[type=text], input[type=date], select {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body>input[type=number],
+        input[type=text],
+        input[type=date],
+        select {
             display: block;
             text-indent: 5px;
             border-style: none none solid none;
@@ -248,7 +254,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             /* position: relative; */
         }
 
-        .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
+        .bottomsheet-container .bottomsheet-contents .bottomsheet-body>button {
             margin: auto;
             width: 150px;
             height: 40px;
@@ -286,7 +292,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             bottom: 0;
             right: 0;
             left: 0;
-            background-color: rgba(0,0,0,0.85);
+            background-color: rgba(0, 0, 0, 0.85);
             width: 100%;
             height: 100%;
             z-index: -1;
@@ -317,11 +323,12 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             transition: all 0.8s ease;
         }
 
-        .sidemenu-content > div {
+        .sidemenu-content>div {
             text-align: start;
             color: #ffffff;
             padding: 10px 20px;
         }
+
         .sidemenu-content ul li {
             color: #ffffff;
             padding: 10px 20px;
@@ -336,7 +343,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             padding-bottom: 0px;
         }
 
-        .sidemenu-content > ul > li:last-child {
+        .sidemenu-content>ul>li:last-child {
             position: absolute;
             bottom: 0px;
             width: 100%;
@@ -362,7 +369,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 padding: 0.5vh 3vw;
             }
 
-            .title > h3 {
+            .title>h3 {
                 font-weight: bold;
                 padding: 0px 3vw;
                 margin-top: 20px;
@@ -380,16 +387,15 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 padding: 15px 3vw;
             }
 
-            .bottomsheet-container .bottomsheet-contents .bottomsheet-body > button {
+            .bottomsheet-container .bottomsheet-contents .bottomsheet-body>button {
                 width: 100%;
             }
-            
+
             /* #main {
                 overflow: hidden;
             } */
-            
-        }
 
+        }
     </style>
 </head>
 
@@ -440,25 +446,35 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         <h3>Select</h3>
     </div>
 
-    <?php for ($i=0; $i < 10; $i++) { ?>
-        <!-- Contain card -->
-        <div class="card-container">
-            <div class="card-contain">
-                <div id="left">
-                    <p>5 May 2023 &bull; 17:56</p>
-                    <h4>Service 1</h4>
-                    <a id="noline" href="javascript:void(0)">Detail</a>
-                </div>
-                <div id="right">
-                    <!-- <img src="./image/new_tick.png" alt="Done"> -->
+    <?php
+    include './db.php';
+    $sql = "select * from maintenance where userid = ? ";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $_SESSION["id"]);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    for ($i = 0; $i < mysqli_num_rows($result); $i++) {
+        while ($row = mysqli_fetch_assoc($result)) {
+    ?>
+            <!-- Contain card -->
+            <div class="card-container">
+                <div class="card-contain">
+                    <div id="left">
+                        <p><?php echo date('Y-m-d', strtotime($row["tarikh"])); ?> &bull; <?php echo date('H:i', strtotime($row["tarikh"] . '+ 8 hours')); ?></p>
+                        <h4><?php echo $row["serviceType"]; ?></h4>
+                        <a id="noline" href="javascript:void(0)">Detail</a>
+                    </div>
+                    <div id="right">
+                        <!-- <img src="./image/new_tick.png" alt="Done"> -->
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php } ?>
+    <?php }
+    } ?>
 
     <!-- Bottom sheet component -->
     <div class="bottomsheet-container">
-        <div class="bottomsheet-overlay"></div>       
+        <div class="bottomsheet-overlay"></div>
         <div class="bottomsheet-contents">
             <div class="bottomsheet-body">
 
@@ -466,19 +482,19 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
                 <!-- <form action="./detail.php" method="post"> -->
 
-                    <label for="threshold">Threshold <bold>(km)</bold></label>
-                    <input type="number" name="threshold" id="threshold">
-                
-                    <label for="service">Type of service</label>
-                    <input type="text" name="service" id="service">
+                <label for="threshold">Threshold <bold>(km)</bold></label>
+                <input type="number" name="threshold" id="threshold">
 
-                    <label for="noplate">No plate</label>
-                    <select name="vehicle" id="noplate">
-                        <option value=""></option>
-                        <option value="jug3455">JUG 3455</option>
-                    </select>
+                <label for="service">Type of service</label>
+                <input type="text" name="service" id="service">
 
-                    <button type="submit" onclick="submit()">Next</button>
+                <label for="noplate">No plate</label>
+                <select name="vehicle" id="noplate">
+                    <option value=""></option>
+                    <option value="jug3455">JUG 3455</option>
+                </select>
+
+                <button type="submit" onclick="submit()">Next</button>
                 <!-- </form> -->
             </div>
         </div>
@@ -546,11 +562,20 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             now.setMinutes(expireTime)
             console.log(now)
             // console.log(now.toUTCString())
-            document.cookie = "tmpDetail="+threshold+";expires="+ now.toUTCString()
+            document.cookie = "threshold=" + threshold + ";expires=" + now.toUTCString()
+            document.cookie = "service=" + service + ";expires=" + now.toUTCString()
+            document.cookie = "plate=" + plate + ";expires=" + now.toUTCString()
 
             window.location.href = "detail.php"
         }
 
+        document.getElementById("service").onchange = () => {
+            let service = document.getElementById("service").value
+            let firstLetter = service.charAt(0).toUpperCase()
+            let remainingWord = service.slice(1)
+            // console.log(firstLetter)
+            document.getElementById("service").value = firstLetter + remainingWord
+        }
     </script>
 
 </body>

@@ -210,27 +210,27 @@ session_start();
         </div>
     </div>
 
-    <form action="./maintenance-process.php" method="get">
+    <form action="./maintenance-process.php" method="post">
         <div class="checklist-container">
             <h3>LIST</h3>
 
-                <input type="hidden" name="tarikh" value="<?php echo $tarikh; ?>" >
-                <input type="hidden" name="threshold" value="<?php echo $_COOKIE["tmpDetail"]; ?>" >
-                <input type="hidden" name="service" value="<?php echo $service; ?>" >
+                <input type="text" name="threshold" value="<?php echo $_COOKIE["threshold"]; ?>" >
+                <input type="text" name="service" value="<?php echo $_COOKIE["service"]; ?>" >
+                <input type="text" name="plateNo" id="plateNo" value="<?php echo $_COOKIE["plate"]; ?>">
                 
                 <div class="checklist-content">
                     <label for="engineOil">
                         Minyak Enjin
                         <!-- <p>10w-50</p> -->
                     </label>
-                    <input type="checkbox" name="engineOil" id="engineOil" value="engineOil">
+                    <input type="checkbox" name="engineOil" id="engineOil" value="1">
                 </div>
                 <div class="checklist-content">
                     <label for="waterCoolant">
                         Cecair Penyejuk Radiator
                         <!-- <p></p> -->
                     </label>
-                    <input type="checkbox" name="waterCoolant" id="waterCoolant" value="waterCoolant">
+                    <input type="checkbox" name="waterCoolant" id="waterCoolant" value="1">
                 </div>
                 <!-- <div class="checklist-content">
                     <label for="rantaiPemacu">
@@ -244,7 +244,7 @@ session_start();
                         Minyak Brek
                         <!-- <p></p> -->
                     </label>
-                    <input type="checkbox" name="minyakBrek" id="minyakBrek" value="bendalirBrek">
+                    <input type="checkbox" name="minyakBrek" id="minyakBrek" value="1">
                 </div>
                 <!-- <div class="checklist-content">
                     <label for="sistemBrek">
@@ -260,14 +260,14 @@ session_start();
                         Brake light switch
                         <!-- <p></p> -->
                     </label>                    
-                    <input type="checkbox" name="suisLampuBrek" id="suisLampuBrek" value="suisLampuBrek">
+                    <input type="checkbox" name="suisLampuBrek" id="suisLampuBrek" value="1">
                 </div>
                 <div class="checklist-content">
                     <label for="lampu_hon">
                         Light/Hon
                         <!-- <p></p> -->
                     </label>
-                    <input type="checkbox" name="lampu_hon" id="lampu_hon" value="lampu_hon">
+                    <input type="checkbox" name="lampu_hon" id="lampu_hon" value="1">
                 </div>
                 <!-- <div class="checklist-content">
                     <label for="sistemPencengkam">
@@ -281,21 +281,21 @@ session_start();
                         Tayar Hadapan
                         <!-- <p>90/80-17</p> -->
                     </label>                    
-                    <input type="checkbox" name="tayarHadapan" id="tayarHadapan" value="tayarHadapan">
+                    <input type="checkbox" name="tayarHadapan" id="tayarHadapan" value="1">
                 </div>
                 <div class="checklist-content">
                     <label for="tayarBelakang">
                         Tayar Belakang
                         <!-- <p>120/70-17</p> -->
                     </label>
-                    <input type="checkbox" name="tayarBelakang" id="tayarBelakang" value="tayarBelakang">
+                    <input type="checkbox" name="tayarBelakang" id="tayarBelakang" value="1">
                 </div>
                 <div class="checklist-content">
                     <label for="palamPencucuh">
                         Palam Pencucuh
                         <!-- <p>Tembaga/Platinum tunggal/Dwi Platinum/Iridium</p> -->
                     </label>
-                    <input type="checkbox" name="palamPencucuh" id="palamPencucuh" value="palamPencucuh">
+                    <input type="checkbox" name="palamPencucuh" id="palamPencucuh" value="1">
                 </div>
                 <!-- <div class="checklist-content">
                     <label for="sistemPenyejuk">

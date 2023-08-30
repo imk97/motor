@@ -1,27 +1,35 @@
 <?php
-$engineOil = (isset($_GET["engineOil"])) ? $_GET["engineOil"] : null;
-$waterCoolant = (isset($_GET["waterCoolant"])) ? $_GET["waterCoolant"] : null;
-$rantaiPemacu = (isset($_GET["rantaiPemacu"])) ? $_GET["rantaiPemacu"] : null;
-$bendalirBrek = (isset($_GET["bendalirBrek"])) ? $_GET["bendalirBrek"] : null;
-$sistemBrek = (isset($_GET["sistemBrek"])) ? $_GET["sistemBrek"] : null;
-$suisLampuBrek = (isset($_GET["suisLampuBrek"])) ? $_GET["suisLampuBrek"] : null;
-$lampu_hone = (isset($_GET["lampu_hone"])) ? $_GET["lampu_hone"] : null;
-$sistemPencengkam = (isset($_GET["sistemPencengkam"])) ? $_GET["sistemPencengkam"] : null;
-$tayarHadapan = (isset($_GET["tayarHadapan"])) ? $_GET["tayarHadapan"] : null;
-$tayarBelakang = (isset($_GET["tayarBelakang"])) ? $_GET["tayarBelakang"] : null;
-$palamPencucuh = (isset($_GET["palamPencucuh"])) ? $_GET["palamPencucuh"] : null;
-$sistemPenyejuk = (isset($_GET["sistemPenyejuk"])) ? $_GET["sistemPenyejuk"] : null;
+session_start();
+date_default_timezone_set("GMT"); //Global timezone
+$tarikh = date("Y-m-d H:i:s");
+$threshold = $_POST["threshold"];
+$serviceType = $_POST["service"];
 
-// echo $engineOil;
-// echo "\n";
-// echo $waterCoolant;
+$engineOil = (isset($_POST["engineOil"])) ? $_POST["engineOil"] : null;
+$waterCoolant = (isset($_POST["waterCoolant"])) ? $_POST["waterCoolant"] : null;
+// $rantaiPemacu = (isset($_GET["rantaiPemacu"])) ? $_GET["rantaiPemacu"] : null;
+$bendalirBrek = (isset($_POST["minyakBrek"])) ? $_POST["minyakBrek"] : null;
+// $sistemBrek = (isset($_GET["sistemBrek"])) ? $_GET["sistemBrek"] : null;
+$suisLampuBrek = (isset($_POST["suisLampuBrek"])) ? $_POST["suisLampuBrek"] : null;
+$lampu_hone = (isset($_POST["lampu_hon"])) ? $_POST["lampu_hon"] : null;
+// $sistemPencengkam = (isset($_GET["sistemPencengkam"])) ? $_GET["sistemPencengkam"] : null;
+$tayarHadapan = (isset($_POST["tayarHadapan"])) ? $_POST["tayarHadapan"] : null;
+$tayarBelakang = (isset($_POST["tayarBelakang"])) ? $_POST["tayarBelakang"] : null;
+$palamPencucuh = (isset($_POST["palamPencucuh"])) ? $_POST["palamPencucuh"] : null;
+// $sistemPenyejuk = (isset($_GET["sistemPenyejuk"])) ? $_GET["sistemPenyejuk"] : null;
+
+$plateNo = $_POST["plateNo"];
+$userid = $_SESSION["id"];
 
 require_once "./db.php";
 
-$sql = "insert into () values ()";
-// mysqli_query($conn, $sql)
-$engineOil = "motul";
-if ($engineOil == "motul") {
+$sql = "insert into maintenance (tarikh, threshold, serviceType, engineOil, waterCoolant, brakeFluid, brakeLightSwitch, lightHon, frontTyre, rearTyre, sparkPlug, plateNo, userid) 
+        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "sssiiiiiiiisi", $tarikh, $threshold, $serviceType, $engineOil, $waterCoolant, $bendalirBrek, $suisLampuBrek, $lampu_hone, $tayarHadapan, $tayarBelakang, $palamPencucuh, $plateNo, $userid);
+$check = mysqli_stmt_execute($stmt);
+
+if ($check) {
 ?>
     <!DOCTYPE html>
     <html lang="en">
