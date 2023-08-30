@@ -16,6 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `maintenance`
+--
+
+DROP TABLE IF EXISTS `maintenance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `maintenance` (
+  `id` int(11) NOT NULL,
+  `tarikh` datetime DEFAULT NULL,
+  `threshold` varchar(45) DEFAULT NULL,
+  `serviceType` varchar(45) DEFAULT NULL,
+  `engineOil` int(11) DEFAULT NULL,
+  `waterCoolant` int(11) DEFAULT NULL,
+  `brakeFluid` int(11) DEFAULT NULL,
+  `brakeLightSwitch` int(11) DEFAULT NULL,
+  `lightHon` int(11) DEFAULT NULL,
+  `frontTyre` int(11) DEFAULT NULL,
+  `rearTyre` int(11) DEFAULT NULL,
+  `sparkPlug` int(11) DEFAULT NULL,
+  `plateNo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `maintenance`
+--
+
+LOCK TABLES `maintenance` WRITE;
+/*!40000 ALTER TABLE `maintenance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `maintenance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -28,7 +62,7 @@ CREATE TABLE `user` (
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-10 21:51:40
+-- Dump completed on 2023-08-28 21:31:08

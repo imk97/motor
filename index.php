@@ -346,6 +346,11 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             /* margin-bottom: 5px; */
         }
 
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
         @media screen and (max-width: 768px) {
 
             .navigationBar {
@@ -379,6 +384,10 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 width: 100%;
             }
             
+            /* #main {
+                overflow: hidden;
+            } */
+            
         }
 
     </style>
@@ -396,6 +405,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     <div class="sidemenu-container">
         <div class="sidemenu-overlay"></div>
         <div class="sidemenu-content">
+            <div><img src="./image/person.png" alt="Person"></div>
             <div><?php echo $_SESSION["name"]; ?></div>
             <div><?php echo $_SESSION["email"]; ?></div>
             <hr>
@@ -508,12 +518,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             // console.log("sidemenu")
             sidemenu[0].classList.add("show")
             contentSidemenu[0].classList.add("show")
+            // document.getElementById("main").style.overflow = "hidden"
         })
 
         exitSidemenu[0].addEventListener("click", () => {
             // console.log("Tutup bottom sheet")
             sidemenu[0].classList.remove("show")
             contentSidemenu[0].classList.remove("show")
+            // document.getElementById("main").removeAttribute("style")
         })
 
         // Logout dari system

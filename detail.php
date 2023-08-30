@@ -232,50 +232,50 @@ session_start();
                     </label>
                     <input type="checkbox" name="waterCoolant" id="waterCoolant" value="waterCoolant">
                 </div>
-                <div class="checklist-content">
+                <!-- <div class="checklist-content">
                     <label for="rantaiPemacu">
                         Rantai Pemacu
-                        <!-- <p></p> -->
+                        <!-- <p></p> 
                     </label>
                     <input type="checkbox" name="rantaiPemacu" id="rantaiPemacu" value="rantaiPemacu">
-                </div>
+                </div> -->
                 <div class="checklist-content">
-                    <label for="bendalirBrek">
-                        Bendalir Brek
+                    <label for="minyakBrek">
+                        Minyak Brek
                         <!-- <p></p> -->
                     </label>
-                    <input type="checkbox" name="bendalirBrek" id="bendalirBrek" value="bendalirBrek">
+                    <input type="checkbox" name="minyakBrek" id="minyakBrek" value="bendalirBrek">
                 </div>
-                <div class="checklist-content">
+                <!-- <div class="checklist-content">
                     <label for="sistemBrek">
                         <label for="sistemBrek">
                             Sistem Brek
-                            <!-- <p> </p> -->
+                            <!-- <p> </p> 
                         </label>                        
                     </label> 
                     <input type="checkbox" name="sistemBrek" id="sistemBrek" value="sistemBrek">
-                </div>
+                </div> -->
                 <div class="checklist-content">
                     <label for="suisLampuBrek">
-                        Suis Lampu Brek
+                        Brake light switch
                         <!-- <p></p> -->
                     </label>                    
                     <input type="checkbox" name="suisLampuBrek" id="suisLampuBrek" value="suisLampuBrek">
                 </div>
                 <div class="checklist-content">
-                    <label for="lampu_hone">
-                        Lampu/Hon
+                    <label for="lampu_hon">
+                        Light/Hon
                         <!-- <p></p> -->
                     </label>
-                    <input type="checkbox" name="lampu_hone" id="lampu_hone" value="lampu_hone">
+                    <input type="checkbox" name="lampu_hon" id="lampu_hon" value="lampu_hon">
                 </div>
-                <div class="checklist-content">
+                <!-- <div class="checklist-content">
                     <label for="sistemPencengkam">
                         Sistem Pencengkam
-                        <!-- <p></p> -->
+                        <!-- <p></p>
                     </label>                    
                     <input type="checkbox" name="sistemPencengkam" id="sistemPencengkam" value="sistemPencengkam">
-                </div>
+                </div> -->
                 <div class="checklist-content">
                     <label for="tayarHadapan">
                         Tayar Hadapan
@@ -297,13 +297,13 @@ session_start();
                     </label>
                     <input type="checkbox" name="palamPencucuh" id="palamPencucuh" value="palamPencucuh">
                 </div>
-                <div class="checklist-content">
+                <!-- <div class="checklist-content">
                     <label for="sistemPenyejuk">
                         Sistem Penyejuk
-                        <!-- <p>Pre-mix coolant</p> -->
+                        <!-- <p>Pre-mix coolant</p>
                     </label>
                     <input type="checkbox" name="sistemPenyejuk" id="sistemPenyejuk" value="sistemPenyejuk">
-                </div>
+                </div> -->
                 <div class="last-content"></div>
         </div>
         <div class="btn-container">
