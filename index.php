@@ -43,6 +43,9 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             padding: 15px 20px;
             font-weight: bold;
             box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+            position: sticky;
+            left: 0;
+            right: 0;
             /* position: sticky; */
             /* position: sticky;
             position: -webkit-sticky;
