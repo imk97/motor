@@ -29,7 +29,7 @@ if (!$check) {
             $_SESSION["id"] = $row["id"];
             $_SESSION["email"] = $row["email"];
     
-            header('Location: index.php');
+            header('Location: .'); // Current directory/index.php
         }
     } else {
         // Http code is unathorized

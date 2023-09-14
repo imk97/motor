@@ -195,13 +195,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             height: 100%;
             display: flex;
             flex-direction: column-reverse;
-            opacity: 0;
             pointer-events: none;
-        }
-
-        .bottomsheet-container.show {
-            opacity: 1;
-            pointer-events: auto;
         }
 
         .bottomsheet-container .bottomsheet-overlay {
@@ -214,7 +208,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             height: 100%;
             background-color: rgba(0, 0, 0, 0.85);
             z-index: -1;
-            opacity: 0.3;
+            opacity: 0;
         }
 
         .bottomsheet-container .bottomsheet-contents {
@@ -227,11 +221,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             right: 0;
             bottom: -400px;
             width: 100%;
-        }
-
-        .bottomsheet-contents.show {
-            bottom: 0;
-            transition: all 0.5s linear;
+            transition: bottom 0.5s ease-in-out;
         }
 
         .bottomsheet-body>label {
@@ -394,10 +384,6 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 width: 100%;
             }
 
-            /* #main {
-                overflow: hidden;
-            } */
-
         }
     </style>
 </head>
@@ -514,17 +500,21 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         let bottomSheet = document.getElementsByClassName("bottomsheet-container")
         let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
         let containBottomSheet = document.getElementsByClassName("bottomsheet-contents")
+        let body = document.getElementById("main")
 
         showBottomSheet.addEventListener("click", () => {
+            body.style.overflow = "hidden"
+            bottomSheet[0].style.pointerEvents = "auto" // https://stackoverflow.com/questions/16492401/javascript-setting-pointer-events
+            containBottomSheet[0].style.bottom = "0"
             // console.log("Berjaya tekan add button")
-            bottomSheet[0].classList.add("show")
-            containBottomSheet[0].classList.add("show")
         })
 
         exitBottomSheet[0].addEventListener("click", () => {
+            bottomSheet[0].style.pointerEvents = "none"
+            bottomSheet[0].style.animation = "opacity 0.5s ease-in-out"
+            containBottomSheet[0].style.bottom = "-400px"
+            body.removeAttribute("style")
             // console.log("Berjaya tutup bottom sheet")
-            bottomSheet[0].classList.remove("show")
-            containBottomSheet[0].classList.remove("show")
         })
 
         // Buka dan tutup SIDE MENU bar

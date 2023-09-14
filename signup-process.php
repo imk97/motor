@@ -46,7 +46,7 @@ if ($check == 0) {
                         $_SESSION["name"] = $row["name"];    
                         $_SESSION["id"] = $row["id"];
                         $_SESSION["email"] = $row["email"];
-                        header("Location: index.php");  
+                        header("Location: ."); //Current directory/index.php  
                     }
                 }
     
