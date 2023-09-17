@@ -212,7 +212,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         .bottomsheet-container .bottomsheet-contents {
-            background: #f5f5f5;
+            background: #ffffff;
             height: 400px;
             padding: 5vh 20%;
             border-radius: 15px 15px 0px 0px;
@@ -240,7 +240,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             border-radius: 0px;
             border-width: 1px;
             border-color: black;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
             width: 100%;
             height: 40px;
             min-width: 98%;
@@ -276,7 +276,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             width: 100%;
             height: 100%;
             pointer-events: none;
-            opacity: 0;
+            /* opacity: 0; */
         }
 
         .sidemenu-container .sidemenu-overlay {
@@ -292,10 +292,10 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             opacity: 0;
         }
 
-        .sidemenu-container.show {
+        /* .sidemenu-container.show {
             opacity: 1;
             pointer-events: auto;
-        }
+        } */
 
         .sidemenu-container .sidemenu-content {
             /* display: block; */
@@ -308,13 +308,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             top: 0;
             bottom: 0;
             border-radius: 0px 12px 12px 0px;
+            transition: all 0.8s ease;
             /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15); */
         }
 
-        .sidemenu-content.show {
+        /* .sidemenu-content.show {
             left: 0px;
             transition: all 0.8s ease;
-        }
+        } */
 
         .sidemenu-content>div {
             text-align: start;
@@ -494,13 +495,14 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         // console.log(viewport)
 
         // console.log(screen.height)
+                
+        let body = document.getElementById("main")
 
         // Buka dan tutup BOTTOM SHEET
         let showBottomSheet = document.getElementById("addButton")
         let bottomSheet = document.getElementsByClassName("bottomsheet-container")
         let exitBottomSheet = bottomSheet[0].getElementsByClassName("bottomsheet-overlay")
         let containBottomSheet = document.getElementsByClassName("bottomsheet-contents")
-        let body = document.getElementById("main")
 
         showBottomSheet.addEventListener("click", () => {
             body.style.overflow = "hidden"
@@ -524,17 +526,18 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         let contentSidemenu = document.getElementsByClassName("sidemenu-content")
 
         sidemenubar.addEventListener("click", () => {
+            body.style.overflow = "hidden"
+            sidemenu[0].style.pointerEvents = "auto"
+            contentSidemenu[0].style.left = "0"
             // console.log("sidemenu")
-            sidemenu[0].classList.add("show")
-            contentSidemenu[0].classList.add("show")
-            // document.getElementById("main").style.overflow = "hidden"
         })
 
         exitSidemenu[0].addEventListener("click", () => {
+            sidemenu[0].style.pointerEvents = "none"
+            sidemenu[0].style.animation = "opacity 0.5s ease-in-out"
+            contentSidemenu[0].style.left = "-300px"
+            body.removeAttribute("style")
             // console.log("Tutup bottom sheet")
-            sidemenu[0].classList.remove("show")
-            contentSidemenu[0].classList.remove("show")
-            // document.getElementById("main").removeAttribute("style")
         })
 
         // Logout dari system

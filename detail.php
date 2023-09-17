@@ -214,9 +214,9 @@ session_start();
         <div class="checklist-container">
             <h3>LIST</h3>
 
-                <input type="text" name="threshold" value="<?php echo $_COOKIE["threshold"]; ?>" >
-                <input type="text" name="service" value="<?php echo $_COOKIE["service"]; ?>" >
-                <input type="text" name="plateNo" id="plateNo" value="<?php echo $_COOKIE["plate"]; ?>">
+                <input type="hidden" name="threshold" value="<?php echo $_COOKIE["threshold"]; ?>" >
+                <input type="hidden" name="service" value="<?php echo $_COOKIE["service"]; ?>" >
+                <input type="hidden" name="plateNo" id="plateNo" value="<?php echo $_COOKIE["plate"]; ?>">
                 
                 <div class="checklist-content">
                     <label for="engineOil">
