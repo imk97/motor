@@ -1,3 +1,11 @@
+<?php
+if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
+    session_start();
+    $_SESSION['authEmail'] = $_COOKIE['email'];
+    $_SESSION['authPass'] = $_COOKIE['pass'];
+    header('Location: login-process.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,8 +127,8 @@
             <button type="submit">Login</button>
             
             <!-- Google login -->
-            <div id="g_id_onload" data-auto_select="false" data-client_id="37952741570-0q2t45pokk735dtug585vt760pnqvj0v.apps.googleusercontent.com" data-login_uri="<?php $_SERVER['SERVER_NAME']; ?>" data-auto_prompt="true" data-callback="handleCredentialResponse" style="width: 100%;"></div>
-            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left" data-width="290"></div>
+            <!-- <div id="g_id_onload" data-auto_select="false" data-client_id="37952741570-0q2t45pokk735dtug585vt760pnqvj0v.apps.googleusercontent.com" data-login_uri="<?php //$_SERVER['SERVER_NAME']; ?>" data-auto_prompt="true" data-callback="handleCredentialResponse" style="width: 100%;"></div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left" data-width="290"></div> -->
 
             <br>
             <p>Not a member?<a href="./signup.php">&nbsp;Signup now</a></p>
@@ -128,24 +136,24 @@
     </div>
 
     <script>
-        function handleCredentialResponse(response) {
+        // function handleCredentialResponse(response) {
 
-            var xhttp = new XMLHttpRequest()
-            xhttp.onload = function() {
-                // console.log(JSON.parse(this.responseText))
-                let data = JSON.parse(this.responseText)
-                if (data != null) {
-                    // console.log(data)
-                    console.log(data.id)
-                    console.log(data.name)
-                    console.log(data.email)
-                    console.log(data.gambar)
-                }
-            }
-            xhttp.open("POST", "google-verify.php")
-            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-            xhttp.send("token=" + response.credential)
-        }
+        //     var xhttp = new XMLHttpRequest()
+        //     xhttp.onload = function() {
+        //         // console.log(JSON.parse(this.responseText))
+        //         let data = JSON.parse(this.responseText)
+        //         if (data != null) {
+        //             // console.log(data)
+        //             console.log(data.id)
+        //             console.log(data.name)
+        //             console.log(data.email)
+        //             console.log(data.gambar)
+        //         }
+        //     }
+        //     xhttp.open("POST", "./API/google/google-verify.php")
+        //     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        //     xhttp.send("token=" + response.credential)
+        // }
 
         // const logout = document.getElementById('signout_button');
         // logout.onclick = () => {

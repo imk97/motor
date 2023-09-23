@@ -1,7 +1,13 @@
 <?php
 session_start();
-$email = $_POST['email'];
-$pass = $_POST['password'];
+$email = (isset($_SESSION['authEmail']) == null) ? $_POST['email'] : $_SESSION['authEmail'];
+$pass = (isset($_SESSION['authPass']) == null) ? $_POST['password'] : $_SESSION['authPass'];
+
+// remove temporary session for authEmail and authPass (cookies-auth)
+if (isset($_SESSION['authEmail']) && isset($_SESSION['authPass'])) {
+    unset($_SESSION['authEmail']);
+    unset($_SESSION['authPass']);
+}
 
 // include db info
 include './db.php';
@@ -28,6 +34,9 @@ if (!$check) {
             $_SESSION["name"] = $row["name"];
             $_SESSION["id"] = $row["id"];
             $_SESSION["email"] = $row["email"];
+
+            setcookie('email', $email, time()+(60*60*24*30), "", "", false, true);
+            setcookie('pass', $pass, time()+(60*60*24*30), "", "", false, true);
     
             header('Location: .'); // Current directory/index.php
         }
