@@ -1,31 +1,21 @@
 <?php
+$email = $_POST['email'];
+$pass = $_POST['password'];
 session_start();
-$email = (isset($_SESSION['authEmail']) == null) ? $_POST['email'] : $_SESSION['authEmail'];
-$pass = (isset($_SESSION['authPass']) == null) ? $_POST['password'] : $_SESSION['authPass'];
-
-// remove temporary session for authEmail and authPass (cookies-auth)
-if (isset($_SESSION['authEmail']) && isset($_SESSION['authPass'])) {
-    unset($_SESSION['authEmail']);
-    unset($_SESSION['authPass']);
-}
 
 // include db info
 include './db.php';
 
-$sql = "select * from user where email = ? and password = ? ";
+$sql = "select * from user where email = ? and password = ?";
 $stmt = mysqli_prepare($conn, $sql);
-
 //Defense from sql injection
 mysqli_stmt_bind_param($stmt, "ss", $email, $pass);
-// $emailAuth = $email;
-// $passAuth = $pass;
 
 //Check n pass the data into db
 $check = mysqli_stmt_execute($stmt);
-
 if (!$check) {
     // Http code is unathorized
-    header("Location: signin.php?error=Incorrect credential", 401);
+    header("Location: signin.php?error=Incorrect credential1", 401);
 } else {
     //Get result based on object
     $result = mysqli_stmt_get_result($stmt);
@@ -35,15 +25,12 @@ if (!$check) {
             $_SESSION["id"] = $row["id"];
             $_SESSION["email"] = $row["email"];
 
-            setcookie('email', $email, time()+(60*60*24*30), "", "", false, true);
-            setcookie('pass', $pass, time()+(60*60*24*30), "", "", false, true);
-    
+            setcookie(session_name(), $_COOKIE[session_name()], time() + (60 * 60 * 24 * 30), "", "", false, true);
             header('Location: .'); // Current directory/index.php
         }
     } else {
         // Http code is unathorized
         header('Location: signin.php?error=Incorrect credential.', 401);
         // exit();
-    }    
+    }
 }
-?>

@@ -1,11 +1,3 @@
-<?php
-if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-    session_start();
-    $_SESSION['authEmail'] = $_COOKIE['email'];
-    $_SESSION['authPass'] = $_COOKIE['pass'];
-    header('Location: login-process.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +6,8 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://apis.google.com/js/api.js"></script>
+    <!-- <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js"></script> -->
     
     <title>Login</title>
 

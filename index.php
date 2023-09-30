@@ -38,43 +38,28 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         .navigationBar {
             max-width: 100%;
             height: 50px;
-            top: 0;
             background-color: #ffffff;
-            padding: 15px 20px;
+            padding: 10px 20px;
             font-weight: bold;
             box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
-            position: sticky;
-            left: 0;
-            right: 0;
-            /* position: sticky; */
-            /* position: sticky;
-            position: -webkit-sticky;
-            overflow: hidden; */
         }
 
-        /* .navigationBar::after {
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);           
-        } */
-
-        ul {
-            list-style-type: none;
+        .navigationBar #sidemenubar {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-image: url("image/person.png");
+            background-size: contain;
         }
 
-        .navigationBar>ul>li {
-            float: left;
-            color: black;
-        }
-
-        .navigationBar>ul>li:first-child {
-            cursor: pointer;
-        }
-
-        .navigationBar>ul>li:last-child {
-            width: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* padding-right: 5px; */
+        .navigationBar #addButton {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            /* background-color: black; */
+            float: right;
+            text-align: center;
+            font-size: 20px;
         }
 
         .header {
@@ -215,7 +200,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background: #ffffff;
             height: 400px;
             padding: 5vh 20%;
-            border-radius: 15px 15px 0px 0px;
+            border-radius: 30px 30px 0px 0px;
             position: fixed;
             left: 0;
             right: 0;
@@ -309,6 +294,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             bottom: 0;
             border-radius: 0px 12px 12px 0px;
             transition: all 0.8s ease;
+            padding: 10px 20px;
             /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15); */
         }
 
@@ -317,39 +303,32 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             transition: all 0.8s ease;
         } */
 
-        .sidemenu-content>div {
-            text-align: start;
-            color: #ffffff;
-            padding: 10px 20px;
+        .sidemenu-container .sidemenu-content ul > * {
+            margin: 10px 0px;
+            list-style: none;
+            color: white;
         }
 
-        .sidemenu-content ul li {
-            color: #ffffff;
-            padding: 10px 20px;
-            /* margin: 30px 0px;  */
-            cursor: pointer;
+        .sidemenu-content #ppicture {
+            width: 30px;
+            height: 30px;
+            background-color: #ffffff;
+            background-image: url("image/person.png");
+            background-size: contain;
+            margin-bottom: 5px;
         }
 
-        .sidemenu-content ul li i {
-            padding-left: 0px;
-            padding-right: 20px;
-            padding-top: 0px;
-            padding-bottom: 0px;
+        .sidemenu-content * > i {
+            margin-right: 30px;
+            width: 20px;
+            height: 20px;
         }
 
-        .sidemenu-content>ul>li:last-child {
+        .sidemenu-container .sidemenu-content ul > li:last-child {
+            /* background-color: blue; */
             position: absolute;
             bottom: 0px;
-            width: 100%;
-            margin-bottom: 10px;
-            /* border-top: 1px solid whitesmoke; */
-            /* padding-top: 20px; */
-            /* margin-bottom: 5px; */
-        }
-
-        img {
-            width: 50px;
-            height: 50px;
+            width: 90%;
         }
 
         @media screen and (max-width: 768px) {
@@ -391,23 +370,19 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
 <body id="main">
     <div class="navigationBar">
-        <ul>
-            <li id="sidemenubar">Hi, <?php echo $_SESSION["name"]; ?></li>
-            <li id="addButton" style="float: right;">&#43;</li>
-        </ul>
+        <div id="sidemenubar"></div>
+        <div id="addButton">&#43;</div>
     </div>
 
     <!-- Side menu -->
     <div class="sidemenu-container">
         <div class="sidemenu-overlay"></div>
         <div class="sidemenu-content">
-            <div><img src="./image/person.png" alt="Person"></div>
-            <div><?php echo $_SESSION["name"]; ?></div>
-            <div><?php echo $_SESSION["email"]; ?></div>
-            <hr>
             <ul>
+                <li id="ppicture"></li>
+                <li style="font-size: 12px;"><?php echo $_SESSION["email"]; ?></li>
                 <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
-                <li id="vehicle"><i class="fa-solid fa-car"></i>Vehicle</li>
+                <!-- <li id="vehicle"><i class="fa-solid fa-car"></i>Vehicle</li> -->
                 <li id="profile"><i class="fa-regular fa-user"></i>Profile</li>
                 <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
             </ul>
@@ -415,8 +390,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <div class="header">
-        <h2>2 Motor Maintenace Yet</h2>
-        <h3>in Scheduled</h3>
+        <h2 id="situation"></h2>
+        <h3><?php echo $_SESSION["name"]?></h3>
     </div>
 
     <!-- Search -->
@@ -491,6 +466,20 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <script>
+        var today = new Date();
+        var timeline;
+        window.onload = function() {
+            if (today.getHours() < 12) {
+                timeline = "Good morning"
+            } else if (today.getHours() < 18) {
+                timeline = "Good afternoon"
+            } else {
+                timeline = "Good evening"
+            }
+            document.getElementById("situation").innerHTML = timeline
+            // document.getElementById("sidemenu").style.backgroundImage = "url('image/done.png')"
+        }
+
         // let viewport = document.querySelector("meta[name=viewport]")
         // console.log(viewport)
 
@@ -507,6 +496,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         showBottomSheet.addEventListener("click", () => {
             body.style.overflow = "hidden"
             bottomSheet[0].style.pointerEvents = "auto" // https://stackoverflow.com/questions/16492401/javascript-setting-pointer-events
+            exitBottomSheet[0].style.opacity = "0.1"
             containBottomSheet[0].style.bottom = "0"
             // console.log("Berjaya tekan add button")
         })
@@ -514,6 +504,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         exitBottomSheet[0].addEventListener("click", () => {
             bottomSheet[0].style.pointerEvents = "none"
             bottomSheet[0].style.animation = "opacity 0.5s ease-in-out"
+            exitBottomSheet[0].style.opacity = "0"
             containBottomSheet[0].style.bottom = "-400px"
             body.removeAttribute("style")
             // console.log("Berjaya tutup bottom sheet")
