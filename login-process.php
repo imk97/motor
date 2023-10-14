@@ -15,7 +15,7 @@ mysqli_stmt_bind_param($stmt, "ss", $email, $pass);
 $check = mysqli_stmt_execute($stmt);
 if (!$check) {
     // Http code is unathorized
-    header("Location: signin.php?error=Incorrect credential1", 401);
+    header("Location: signin.php?error=Incorrect credential", 401);
 } else {
     //Get result based on object
     $result = mysqli_stmt_get_result($stmt);

@@ -64,12 +64,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         .header {
             max-width: 100%;
-            height: 100px;
-            padding: 30px;
-        }
-
-        .header>* {
-            text-align: center;
+            /* height: 100px; */
+            padding: 30px 20%;
         }
 
         .title>h3 {
@@ -310,10 +306,11 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         }
 
         .sidemenu-content #ppicture {
-            width: 30px;
-            height: 30px;
+            width: 80px;
+            height: 80px;
             background-color: #ffffff;
             background-image: url("image/person.png");
+            background-repeat: no-repeat;
             background-size: contain;
             margin-bottom: 5px;
         }
@@ -327,7 +324,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         .sidemenu-container .sidemenu-content ul > li:last-child {
             /* background-color: blue; */
             position: absolute;
-            bottom: 0px;
+            bottom: 20px;
             width: 90%;
         }
 
@@ -336,6 +333,10 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             .navigationBar {
                 padding-left: 3vw;
                 padding-right: 3vw;
+            }
+
+            .header {
+                padding: 1vh 3vw;
             }
 
             .card-container {
@@ -383,21 +384,21 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
                 <li style="font-size: 12px;"><?php echo $_SESSION["email"]; ?></li>
                 <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
                 <!-- <li id="vehicle"><i class="fa-solid fa-car"></i>Vehicle</li> -->
-                <li id="profile"><i class="fa-regular fa-user"></i>Profile</li>
+                <li id="profile" onclick="profile()"><i class="fa-regular fa-user"></i>Profile</li>
                 <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
             </ul>
         </div>
     </div>
 
-    <div class="header">
-        <h2 id="situation"></h2>
-        <h3><?php echo $_SESSION["name"]?></h3>
-    </div>
+    <!-- <div class="header">
+        <h3>Hi, <?php //echo $_SESSION["name"]?>!</h3>
+        <p id="situation"></p>
+    </div> -->
 
     <!-- Search -->
     <!-- <div class="search-container">
         <input type="text" name="search" id="search" placeholder="Search..">
-        <!-- <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit"><i class="fa fa-search"></i></button>
     </div> -->
 
     <!-- category - itmam/1/8/2023 -->
@@ -562,6 +563,12 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             let remainingWord = service.slice(1)
             // console.log(firstLetter)
             document.getElementById("service").value = firstLetter + remainingWord
+        }
+
+        function profile() {
+            // window.location.href = "profile.php"
+            Android.openProfile()
+            // Android.showToast('test')
         }
     </script>
 
