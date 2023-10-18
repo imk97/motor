@@ -70,7 +70,7 @@ if (!isset($_SESSION["name"])) {
             justify-content: center;
             align-items: center;
             flex-direction: column; */
-            margin: 10px 10vw;
+            margin: 10vw 10vw;
         }
 
         .contents>* {
@@ -180,6 +180,14 @@ if (!isset($_SESSION["name"])) {
             width: 90%;
         }
 
+        .contents img {
+            width: 25%;
+            /* height: 50%; */
+            margin: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+
     </style>
 </head>
 
@@ -216,13 +224,16 @@ if (!isset($_SESSION["name"])) {
         while ($row = mysqli_fetch_assoc($result)) { ?>
             <div class="contents">
                 <!-- <img src="image/person.png" alt=""> -->
-                <div id="profile"></div>
+                <!-- <div id="profile"></div> -->
+                <img src="image/person.png" alt="">
                 <label for="name">Full name</label>
                 <input type="text" name="name" id="name" value="<?php echo $row["name"]; ?>">
                 <!-- <hr> -->
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email" value="<?php echo $row["email"]; ?>">
                 <!-- <hr> -->
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" id="phone" value="">
             </div>
     <?php }
     }
