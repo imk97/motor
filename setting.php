@@ -17,6 +17,9 @@ session_start();
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+            -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
+            outline: none !important;
         }
 
         .navigationBar {
@@ -46,7 +49,7 @@ session_start();
 
         main > div {
             cursor: pointer;
-            padding: 20px;
+            padding: 20px 25px;
             height: 80px;
             width: 100vw;
             display: flex;
@@ -56,6 +59,10 @@ session_start();
 
         #desc p {
             font-size: 14px;
+        }
+
+        main > div:active {
+            background-color: grey;
         }
 
     </style>

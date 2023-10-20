@@ -66,11 +66,8 @@ if (!isset($_SESSION["name"])) {
         }
 
         .contents {
-            /* display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column; */
-            margin: 10vw 10vw;
+            /* margin: 10vw 10vw; */
+            padding: 10% 10vw;
         }
 
         .contents>* {
@@ -82,7 +79,7 @@ if (!isset($_SESSION["name"])) {
             float: left !important;
         }
 
-        .contents > input[type="text"] {
+        .contents > input[type="text"], input[type="tel"] {
             width: 100%;
             height: 30px;
             border-style: none none solid none;
@@ -100,92 +97,31 @@ if (!isset($_SESSION["name"])) {
             border-radius: 50px;
         }
 
-        .sidemenu-container {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            /* opacity: 0; */
-        }
-
-        .sidemenu-container .sidemenu-overlay {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0;
-        }
-
-        /* .sidemenu-container.show {
-            opacity: 1;
-            pointer-events: auto;
-        } */
-
-        .sidemenu-container .sidemenu-content {
-            /* display: block; */
-            height: 100%;
-            width: 300px;
-            background-color: #272829;
-            z-index: 1;
-            position: fixed;
-            left: -300px;
-            top: 0;
-            bottom: 0;
-            border-radius: 0px 12px 12px 0px;
-            transition: all 0.8s ease;
-            padding: 10px 20px;
-            /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15); */
-        }
-
-        /* .sidemenu-content.show {
-            left: 0px;
-            transition: all 0.8s ease;
-        } */
-
-        .sidemenu-container .sidemenu-content ul>* {
-            margin: 10px 0px;
-            list-style: none;
-            color: white;
-        }
-
-        .sidemenu-content #ppicture {
-            width: 80px;
-            height: 80px;
-            background-color: #ffffff;
-            background-image: url("image/person.png");
-            background-repeat: no-repeat;
-            background-size: contain;
-            margin-bottom: 5px;
-        }
-
-        .sidemenu-content *>i {
-            margin-right: 30px;
-            width: 20px;
-            height: 20px;
-        }
-
-        .sidemenu-container .sidemenu-content ul>li:last-child {
-            /* background-color: blue; */
-            position: absolute;
-            bottom: 20px;
-            width: 90%;
-        }
-
         .contents img {
             width: 25%;
             /* height: 50%; */
             margin: auto;
             display: block;
             margin-bottom: 20px;
+        }
+
+        #btn {
+            width: 100%;
+            padding: 0 10vw;
+            position: absolute;
+            bottom: 30px;
+        }
+
+        button {
+            width: 100%;
+            height: 45px;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 10px;
+        }
+
+        .disabled {
+            opacity: 0.5;
         }
 
     </style>
@@ -196,22 +132,6 @@ if (!isset($_SESSION["name"])) {
         <!-- <button id="sidemenubar"><i class="fas fa-bars" style="color: #000000;"></i></button>
         <div>Profile</div> -->
     </div>
-
-    <!-- Side menu -->
-    <!-- <div class="sidemenu-container">
-        <div class="sidemenu-overlay"></div>
-        <div class="sidemenu-content">
-            <ul>
-                <li id="ppicture"></li>
-                <li style="font-size: 12px;"><?php echo $_SESSION["email"]; ?></li>
-                <li id="home"><i class="fa-solid fa-house"></i>Dashboard</li>
-                <li id="vehicle"><i class="fa-solid fa-car"></i>Vehicle</li> 
-                <li id="profile" onclick="profile()"><i class="fa-regular fa-user"></i>Profile</li>
-                <li id="logout" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
-            </ul>
-        </div>
-    </div> -->
-
 
     <?php
     $sql = "select * from user where id = ? ";
@@ -227,17 +147,23 @@ if (!isset($_SESSION["name"])) {
                 <!-- <div id="profile"></div> -->
                 <img src="image/person.png" alt="">
                 <label for="name">Full name</label>
-                <input type="text" name="name" id="name" value="<?php echo $row["name"]; ?>">
+                <input type="text" name="name" id="name" value="<?php echo $row["name"]; ?>" oninput="test()">
                 <!-- <hr> -->
                 <label for="email">Email</label>
-                <input type="text" name="email" id="email" value="<?php echo $row["email"]; ?>">
+                <input type="text" name="email" id="email" value="<?php echo $row["email"]; ?>" oninput="test()">
                 <!-- <hr> -->
                 <label for="phone">Phone</label>
-                <input type="text" name="phone" id="phone" value="">
+                <input type="tel" name="phone" id="phone" value="" oninput="test()">
+
             </div>
     <?php }
     }
     ?>
+
+    <div id="btn">
+        <button type="button" class="disabled">Save</button>
+    </div>
+
 </body>
 
 <script>
@@ -247,37 +173,14 @@ if (!isset($_SESSION["name"])) {
         body.style.right = "0px";
     }
 
-    // Buka dan tutup SIDE MENU bar
-    let sidemenubar = document.getElementById("sidemenubar")
-    let sidemenu = document.getElementsByClassName("sidemenu-container")
-    let exitSidemenu = sidemenu[0].getElementsByClassName("sidemenu-overlay")
-    let contentSidemenu = document.getElementsByClassName("sidemenu-content")
-
-    sidemenubar.addEventListener("click", () => {
-        // body.style.overflow = "hidden"
-        sidemenu[0].style.pointerEvents = "auto"
-        contentSidemenu[0].style.left = "0"
-        // console.log("sidemenu")
-    })
-
-    exitSidemenu[0].addEventListener("click", () => {
-        sidemenu[0].style.pointerEvents = "none"
-        sidemenu[0].style.animation = "opacity 0.5s ease-in-out"
-        contentSidemenu[0].style.left = "-300px"
-        // body.removeAttribute("style")
-        // console.log("Tutup bottom sheet")
-    })
+    function test() {
+        console.log("tekan input")
+        let btn = document.getElementsByTagName("button")
+        // btn[0].classList.remove("disabled")
+        btn[0].style.opacity = "1"
+    }
 
 
-    // function onBack() {
-    //     // console.log("Anda pasti ke laman utama")
-    //     // document.cookie = "tmpDetail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/motor;"
-    //     var body = document.getElementsByTagName("body")
-    //     body[0].style.animation = "closeBody 0.5s"
-    //     history.back()
-    //     // window.location.href = "index.php"
-
-    // }
 </script>
 
 </html>
