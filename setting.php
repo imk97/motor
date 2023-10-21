@@ -73,21 +73,21 @@ session_start();
     <nav class="navigationBar"></nav>
 
     <main>
-        <div>
+        <div onclick="nav('profile')">
             <i class="fa-regular fa-user fa-xl"></i>
             <div id="desc">
             <p><b>Account Information</b></p>
             <p>See your account information like your phone number and email address.</p> 
             </div>
         </div>
-        <div>
+        <div onclick="nav()">
             <i class="fa-solid fa-lock fa-xl" style="color: #000000;"></i>
             <div id="desc">
             <p><b>Password</b></p>
             <p>Change your password.</p> 
             </div>
         </div>
-        <div>
+        <div onclick="nav()">
             <i class="fa-solid fa-shield-halved fa-xl" style="color: #000000;"></i>
             <div id="desc">
                 <p><b>Security</b></h4>
@@ -97,4 +97,18 @@ session_start();
     </main>
 </body>
 
+<script>
+
+    function nav (redirect) {
+        switch (redirect) {
+            case "profile":
+                Android.profile()
+                break;
+        
+            default:
+                break;
+        }
+    }
+
+</script>
 </html>

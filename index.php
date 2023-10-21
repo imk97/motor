@@ -41,7 +41,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             background-color: #ffffff;
             padding: 10px 20px;
             font-weight: bold;
-            box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+            /* box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2); */
         }
 
         .navigationBar #sidemenubar {
@@ -541,20 +541,12 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             let threshold = document.getElementById("threshold").value
             let service = document.getElementById("service").value
             let plate = document.getElementById("noplate").value
-            // console.log(threshold)
-            let now = new Date()
-            // console.log(now)
-            // console.log(now.getMinutes())
-            // console.log(now.getMinutes() + (5))
-            let expireTime = now.getMinutes() + 1
-            now.setMinutes(expireTime)
-            console.log(now)
-            // console.log(now.toUTCString())
-            document.cookie = "threshold=" + threshold + ";expires=" + now.toUTCString()
-            document.cookie = "service=" + service + ";expires=" + now.toUTCString()
-            document.cookie = "plate=" + plate + ";expires=" + now.toUTCString()
+            window.sessionStorage.setItem("threshold", threshold)
+            window.sessionStorage.setItem("service", service)
+            window.sessionStorage.setItem("plate", plate)
 
-            window.location.href = "detail.php"
+            // window.location.href = "detail.php"
+            Android.openDetail()
         }
 
         document.getElementById("service").onchange = () => {
@@ -567,7 +559,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         function profile() {
             // window.location.href = "profile.php"
-            Android.openProfile()
+            Android.openSetting()
             // Android.showToast('test')
         }
     </script>

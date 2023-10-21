@@ -193,8 +193,8 @@ session_start();
 </style>
 <body>
     <div class="navigationBar">
-        <button onclick="onBack()" id="backBtn" type="button" title="backBtn"><i class="fas fa-arrow-left"></i></button>
-        <div>Maintenance Detail</div>
+        <!-- <button onclick="onBack()" id="backBtn" type="button" title="backBtn"><i class="fas fa-arrow-left"></i></button>
+        <div>Maintenance Detail</div> -->
     </div>
 
     <div class="modal" id="alertModal">
@@ -214,9 +214,9 @@ session_start();
         <div class="checklist-container">
             <h3>LIST</h3>
 
-                <input type="hidden" name="threshold" value="<?php echo $_COOKIE["threshold"]; ?>" >
-                <input type="hidden" name="service" value="<?php echo $_COOKIE["service"]; ?>" >
-                <input type="hidden" name="plateNo" id="plateNo" value="<?php echo $_COOKIE["plate"]; ?>">
+                <input type="hidden" name="threshold" id="threshold">
+                <input type="hidden" name="service" id="service" >
+                <input type="hidden" name="plateNo" id="plateNo" value="">
                 
                 <div class="checklist-content">
                     <label for="engineOil">
@@ -313,12 +313,12 @@ session_start();
 
 </body>
 <script>
-    function onBack() {
-        console.log("Anda pasti ke laman utama")
-        document.cookie = "tmpDetail=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/motor;"
-        history.back()
-        // window.location.href = "index.php"
 
+    window.onload = function() {
+        // Dapatkan data yang disimpan di session storage
+        document.getElementById("threshold").value = window.sessionStorage.getItem("threshold")
+        document.getElementById("service").value = window.sessionStorage.getItem("service")
+        document.getElementById("plateNo").value = window.sessionStorage.getItem("plate")
     }
 </script>
 </html>
