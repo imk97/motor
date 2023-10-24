@@ -39,7 +39,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             max-width: 100%;
             height: 50px;
             background-color: #ffffff;
-            padding: 10px 20px;
+            padding: 10px 10px;
             font-weight: bold;
             /* box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2); */
         }
@@ -202,7 +202,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             right: 0;
             bottom: -400px;
             width: 100%;
-            transition: bottom 0.5s ease-in-out;
+            transition: bottom 0.2s linear;
         }
 
         .bottomsheet-body>label {
@@ -299,7 +299,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             transition: all 0.8s ease;
         } */
 
-        .sidemenu-container .sidemenu-content ul > * {
+        .sidemenu-container .sidemenu-content ul>* {
             margin: 10px 0px;
             list-style: none;
             color: white;
@@ -315,13 +315,13 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             margin-bottom: 5px;
         }
 
-        .sidemenu-content * > i {
+        .sidemenu-content *>i {
             margin-right: 30px;
             width: 20px;
             height: 20px;
         }
 
-        .sidemenu-container .sidemenu-content ul > li:last-child {
+        .sidemenu-container .sidemenu-content ul>li:last-child {
             /* background-color: blue; */
             position: absolute;
             bottom: 20px;
@@ -330,10 +330,10 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
 
         @media screen and (max-width: 768px) {
 
-            .navigationBar {
+            /* .navigationBar {
                 padding-left: 3vw;
                 padding-right: 3vw;
-            }
+            } */
 
             .header {
                 padding: 1vh 3vw;
@@ -358,7 +358,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
             }
 
             .bottomsheet-container .bottomsheet-contents {
-                padding: 15px 3vw;
+                padding: 15px 5vw;
             }
 
             .bottomsheet-container .bottomsheet-contents .bottomsheet-body>button {
@@ -391,7 +391,8 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
     </div>
 
     <!-- <div class="header">
-        <h3>Hi, <?php //echo $_SESSION["name"]?>!</h3>
+        <h3>Hi, <?php //echo $_SESSION["name"]
+                ?>!</h3>
         <p id="situation"></p>
     </div> -->
 
@@ -485,7 +486,7 @@ if (isset($_SESSION["name"]) == null && (isset($_SESSION["id"])) == null) {
         // console.log(viewport)
 
         // console.log(screen.height)
-                
+
         let body = document.getElementById("main")
 
         // Buka dan tutup BOTTOM SHEET
