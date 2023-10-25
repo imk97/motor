@@ -24,16 +24,20 @@ if (mysqli_num_rows($result) == 1) {
         $checkUpdate = mysqli_stmt_get_result($passStmt);
 
         if ($checkUpdate != false) {
-            header("Location: updatePassword.php?res=Successfully update password!");
+            $_SESSION["res"] = "Congratulation! Successful update password";
+            header("Location: update-password.php");
         } else {
-            header("Location: updatePassword.php?err=Password cannot be update!");
+            $_SESSION["res"] = "Unable to update password!";
+            header("Location: update-password.php");
         }
 
     } else {
-        header("Location: updatePassword.php?err=There have conflict between new and confirmation password!");
+        $_SESSION["res"] = "There have conflict between new and confirmation password!";
+        header("Location: update-password.php");
     }
 } else {
-    header("Location: updatePassword.php?err=Password does not exist. Kindly recheck again");
+    $_SESSION["res"] = "Password does not exist. Kindly recheck again";
+    header("Location: update-password.php");
 }
 
 

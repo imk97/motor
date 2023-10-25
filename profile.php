@@ -42,7 +42,7 @@ if (!isset($_SESSION["name"])) {
             /* display: flex;
             align-items: center; */
             padding: 15px 20px;
-            box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+            /* box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2); */
             position: sticky;
             top: 0;
             right: 0;
@@ -70,16 +70,17 @@ if (!isset($_SESSION["name"])) {
             padding: 10% 10vw;
         }
 
-        .contents>* {
+        .contents > form > * {
             margin: 10px 0;
         }
 
-        .contents > label {
+        .contents > form > label {
             color: grey;
             float: left !important;
         }
 
-        .contents > input[type="text"], input[type="tel"] {
+        .contents > form > input[type="text"],
+        input[type="tel"] {
             width: 100%;
             height: 30px;
             border-style: none none solid none;
@@ -88,7 +89,7 @@ if (!isset($_SESSION["name"])) {
 
         }
 
-        .contents > #profile {
+        .contents> form > #profile {
             width: 100px;
             height: 100px;
             outline: solid;
@@ -105,12 +106,12 @@ if (!isset($_SESSION["name"])) {
             margin-bottom: 20px;
         }
 
-        #btn {
+        /* #btn {
             width: 100%;
             padding: 0 10vw;
             position: absolute;
             bottom: 30px;
-        }
+        } */
 
         button {
             width: 100%;
@@ -123,7 +124,6 @@ if (!isset($_SESSION["name"])) {
         .disabled {
             opacity: 0.5;
         }
-
     </style>
 </head>
 
@@ -145,24 +145,28 @@ if (!isset($_SESSION["name"])) {
             <div class="contents">
                 <!-- <img src="image/person.png" alt=""> -->
                 <!-- <div id="profile"></div> -->
-                <img src="image/person.png" alt="">
-                <label for="name">Full name</label>
-                <input type="text" name="name" id="name" value="<?php echo $row["name"]; ?>" oninput="test()">
-                <!-- <hr> -->
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" value="<?php echo $row["email"]; ?>" oninput="test()">
-                <!-- <hr> -->
-                <label for="phone">Phone</label>
-                <input type="tel" name="phone" id="phone" value="" oninput="test()">
+                <form action="./update-profile.php" method="post">
+                    <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="">
+                    <label for="name">Full name</label>
+                    <input type="text" name="name" id="name" value="<?php echo $row["name"]; ?>" oninput="test()">
+                    <!-- <hr> -->
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" value="<?php echo $row["email"]; ?>" oninput="test()">
+                    <!-- <hr> -->
+                    <label for="phone">Phone</label>
+                    <input type="tel" name="phone" id="phone" value="<?php echo $row["phone"]; ?>" oninput="test()">
 
+                    <button type="submit" class="disabled">Save</button>
+
+                </form>
             </div>
     <?php }
     }
     ?>
 
-    <div id="btn">
-        <button type="button" class="disabled">Save</button>
-    </div>
+    <!-- <div id="btn">
+        <button type="submit" class="disabled">Save</button>
+    </div> -->
 
 </body>
 
@@ -179,8 +183,6 @@ if (!isset($_SESSION["name"])) {
         // btn[0].classList.remove("disabled")
         btn[0].style.opacity = "1"
     }
-
-
 </script>
 
 </html>

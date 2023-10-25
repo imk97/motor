@@ -79,7 +79,27 @@ session_start();
             height: 40px;
             border-radius: 20px;
             border-width: 1px;
+            background-color: black;
+            color: #ffffff;
         }
+
+        .alert {
+            background-color: #f44336;
+            color: white;
+            padding: 5px;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .closebtn {
+            float: right;
+            cursor: pointer;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
     </style>
 </head>
 
@@ -87,15 +107,22 @@ session_start();
     <div class="navigationBar"></div>
 
     <div class="content">
+        <?php if (isset($_SESSION["res"])) { ?>
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+                <?php echo $_SESSION["res"]; ?>
+            </div>
+        <?php } unset($_SESSION["res"]) ?>
+
         <form action="" method="post">
             <label for="curr_password">Current password</label>
-            <input type="password" name="current_password" id="curr_password">
+            <input type="password" name="current_password" id="curr_password" required>
 
             <label for="new_password">New password</label>
-            <input type="password" name="new_password" id="new_password">
+            <input type="password" name="new_password" id="new_password" required>
 
             <label for="confirm_pasword">Confirm password</label>
-            <input type="password" name="confirm_password" id="confirm_password">
+            <input type="password" name="confirm_password" id="confirm_password" required>
 
             <button type="submit">Update password</button>
         </form>
