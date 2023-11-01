@@ -38,17 +38,6 @@ session_start();
             margin-left: 20px;
         }
 
-        /* .navigationBar button {
-            border-radius: 12px;
-            background-color: #ffffff;
-            border: none;
-            /* padding: 10px; */
-            /* cursor: pointer;
-            width: 20px;
-            height: 20px;
-            color: black;
-        } */
-
         .content {
             width: 100%;
             height: 100%;
@@ -100,6 +89,12 @@ session_start();
             color: black;
         }
 
+        .content > form > label {
+            color: grey;
+            float: left !important;
+        }
+
+
     </style>
 </head>
 
@@ -114,7 +109,7 @@ session_start();
             </div>
         <?php } unset($_SESSION["res"]) ?>
 
-        <form action="" method="post">
+        <form action="./updatepassword-process.php" method="post">
             <label for="curr_password">Current password</label>
             <input type="password" name="current_password" id="curr_password" required>
 

@@ -70,17 +70,18 @@ session_start();
 
 <body>
 
-    <nav class="navigationBar"></nav>
+    <!-- Top navigation guideline -->
+    <?php //include_once "./top-navigationbar.php"; ?>
 
     <main>
         <div onclick="nav('profile')">
             <i class="fa-regular fa-user fa-xl"></i>
             <div id="desc">
-            <p><b>Account Information</b></p>
-            <p>See your account information like your phone number and email address.</p> 
+                <p><b>Account Information</b></p>
+                <p>See your account information like your phone number and email address.</p> 
             </div>
         </div>
-        <div onclick="nav()">
+        <div onclick="nav('password')">
             <i class="fa-solid fa-lock fa-xl" style="color: #000000;"></i>
             <div id="desc">
             <p><b>Password</b></p>
@@ -95,6 +96,10 @@ session_start();
             </div>
         </div>
     </main>
+
+    <!-- Bottom navigation guideline -->
+    <?php //include_once "./bottom-navigationbar.php"; ?>
+
 </body>
 
 <script>
@@ -105,6 +110,10 @@ session_start();
                 Android.profile()
                 break;
         
+            case "password":
+                Android.password()
+                break;
+
             default:
                 break;
         }

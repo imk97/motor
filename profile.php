@@ -127,11 +127,10 @@ if (!isset($_SESSION["name"])) {
     </style>
 </head>
 
-<body id="body">
-    <div class="navigationBar">
-        <!-- <button id="sidemenubar"><i class="fas fa-bars" style="color: #000000;"></i></button>
-        <div>Profile</div> -->
-    </div>
+<body>
+
+    <!-- Top navigation guideline -->
+    <?php include_once "./top-navigationbar.php"; ?>
 
     <?php
     $sql = "select * from user where id = ? ";
@@ -148,13 +147,13 @@ if (!isset($_SESSION["name"])) {
                 <form action="./update-profile.php" method="post">
                     <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="">
                     <label for="name">Full name</label>
-                    <input type="text" name="name" id="name" value="<?php echo $row["name"]; ?>" oninput="test()">
+                    <input type="text" name="name" id="name" value="<?php echo $name = (isset($row["name"])) ? $row["name"] : null; ?>" oninput="enSubmitBtn()">
                     <!-- <hr> -->
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" value="<?php echo $row["email"]; ?>" oninput="test()">
+                    <input type="text" name="email" id="email" value="<?php echo $email = (isset($row["email"])) ? $row["email"] : null ; ?>" oninput="enSubmitBtn()">
                     <!-- <hr> -->
                     <label for="phone">Phone</label>
-                    <input type="tel" name="phone" id="phone" value="<?php echo $row["phone"]; ?>" oninput="test()">
+                    <input type="tel" name="phone" id="phone" value="<?php echo $phone = (isset($row["phone"])) ? $row["phone"] : null; ?>" oninput="enSubmitBtn()">
 
                     <button type="submit" class="disabled">Save</button>
 
@@ -164,23 +163,15 @@ if (!isset($_SESSION["name"])) {
     }
     ?>
 
-    <!-- <div id="btn">
-        <button type="submit" class="disabled">Save</button>
-    </div> -->
+    <!-- Bottom navigation guideline -->
+    <?php include_once "./bottom-navigationbar.php"; ?>
 
 </body>
 
 <script>
-    var body = document.getElementById("body")
-
-    window.onload = function() {
-        body.style.right = "0px";
-    }
-
-    function test() {
-        console.log("tekan input")
+    function enSubmitBtn() {
+        // console.log("tekan input")
         let btn = document.getElementsByTagName("button")
-        // btn[0].classList.remove("disabled")
         btn[0].style.opacity = "1"
     }
 </script>
