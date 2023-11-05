@@ -14,7 +14,7 @@ if (!isset($_SESSION["name"])) {
     <title>Profile</title>
 
     <script src="https://kit.fontawesome.com/50f334ce21.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 
 
     <style>
@@ -22,6 +22,7 @@ if (!isset($_SESSION["name"])) {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'PT Serif';
         }
 
         /* body {
@@ -67,7 +68,7 @@ if (!isset($_SESSION["name"])) {
 
         .contents {
             /* margin: 10vw 10vw; */
-            padding: 10% 10vw;
+            padding: 5px 10vw 0 10vw;
         }
 
         .contents > form > * {
@@ -89,21 +90,39 @@ if (!isset($_SESSION["name"])) {
 
         }
 
+        input[type="file"] {
+            width: 100%;
+            display: none;
+        }
+
         .contents> form > #profile {
-            width: 100px;
+            /* width: 100px;
             height: 100px;
             outline: solid;
             outline-width: 1px;
             margin: 40px auto;
-            border-radius: 50px;
+            border-radius: 50px; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #edit {
+            position: relative;
+            left: 50px;
+            width: 30px;
+            height: 20px;
+            /* background-color: green; */
         }
 
         .contents img {
-            width: 25%;
+            width: 70px;
+            height: 70px;
             /* height: 50%; */
-            margin: auto;
-            display: block;
-            margin-bottom: 20px;
+            /* margin: auto; */
+            /* display: block; */
+            /* margin-bottom: 20px; */
         }
 
         /* #btn {
@@ -145,13 +164,17 @@ if (!isset($_SESSION["name"])) {
                 <!-- <img src="image/person.png" alt=""> -->
                 <!-- <div id="profile"></div> -->
                 <form action="./update-profile.php" method="post">
-                    <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="">
+                    <div id="profile">
+                        <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="">
+                        <label for="uploadProfile" id="edit">Edit</label>
+                        <input type="file" name="profile" id="uploadProfile">
+                    </div>
                     <label for="name">Full name</label>
                     <input type="text" name="name" id="name" value="<?php echo $name = (isset($row["name"])) ? $row["name"] : null; ?>" oninput="enSubmitBtn()">
-                    <!-- <hr> -->
+
                     <label for="email">Email</label>
                     <input type="text" name="email" id="email" value="<?php echo $email = (isset($row["email"])) ? $row["email"] : null ; ?>" oninput="enSubmitBtn()">
-                    <!-- <hr> -->
+
                     <label for="phone">Phone</label>
                     <input type="tel" name="phone" id="phone" value="<?php echo $phone = (isset($row["phone"])) ? $row["phone"] : null; ?>" oninput="enSubmitBtn()">
 
@@ -164,7 +187,7 @@ if (!isset($_SESSION["name"])) {
     ?>
 
     <!-- Bottom navigation guideline -->
-    <?php include_once "./bottom-navigationbar.php"; ?>
+    <?php //include_once "./bottom-navigationbar.php"; ?>
 
 </body>
 

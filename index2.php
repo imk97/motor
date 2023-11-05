@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION["name"]) == null && isset($_SESSION["id"]) == null) {
+    header("Location: signin.php", 401);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,12 +37,31 @@ session_start();
 <body>
 
     <!-- Top navigation guideline -->
-    <?php include_once "./top-navigationbar.php"; ?>
+    <?php //include_once "./top-navigationbar.php"; ?>
 
-    <div id="contain" style="overflow-y: scroll;"></div>
+    <div id="contain"></div>
 
     <!-- Bottom navigation guideline -->
     <?php include_once "./bottom-navigationbar.php"; ?>
 </body>
+<script>
+
+    function nav (redirect) {
+        switch (redirect) {
+            case "profile":
+                // console.log("buka profile")
+                Android.profile()
+                break;
+        
+            case "password":
+                Android.password()
+                break;
+
+            default:
+                break;
+        }
+    }
+
+</script>
 
 </html>

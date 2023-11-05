@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (isset($_SESSION["name"]) == null && isset($_SESSION["id"]) == null) {
+    header("Location: signin.php", 401);
+}
 
 ?>
 <!DOCTYPE html>
@@ -9,6 +12,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setting</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/50f334ce21.js" crossorigin="anonymous"></script>
 
@@ -20,6 +24,7 @@ session_start();
             -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
             -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
             outline: none !important;
+            font-family: 'PT Serif';
         }
 
         .navigationBar {
@@ -71,7 +76,7 @@ session_start();
 <body>
 
     <!-- Top navigation guideline -->
-    <?php //include_once "./top-navigationbar.php"; ?>
+    <?php include_once "./top-navigationbar.php"; ?>
 
     <main>
         <div onclick="nav('profile')">
@@ -102,22 +107,4 @@ session_start();
 
 </body>
 
-<script>
-
-    function nav (redirect) {
-        switch (redirect) {
-            case "profile":
-                Android.profile()
-                break;
-        
-            case "password":
-                Android.password()
-                break;
-
-            default:
-                break;
-        }
-    }
-
-</script>
 </html>

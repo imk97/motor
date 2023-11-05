@@ -20,7 +20,7 @@
 
         .btnNav {
             width: 100%;
-            height: 50px;
+            height: 55px;
             position: fixed;
             bottom: 0;
         }

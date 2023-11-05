@@ -26,7 +26,7 @@ if (!$check) {
             $_SESSION["email"] = $row["email"];
 
             setcookie(session_name(), $_COOKIE[session_name()], time() + (60 * 60 * 24 * 30), "", "", false, true);
-            header('Location: .'); // Current directory/index.php
+            header('Location: index2.php'); // Current directory/index2.php
         }
     } else {
         // Http code is unathorized

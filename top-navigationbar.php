@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION["name"]) == null && isset($_SESSION["id"]) == null) {
+    header("Location: signin.php", 401);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +23,18 @@
             height: 50px;
             position: relative;
             top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
     </style>
 </head>
 <body>
-    <div class="topNav"></div>
+    <div class="topNav">
+        <?php if ($_SERVER["PHP_SELF"] == "/motor/setting.php") { ?>
+            <h3>Settings</h3>
+        <?php } ?>
+    </div>
 </body>
 </html>
