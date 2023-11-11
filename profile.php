@@ -108,11 +108,12 @@ if (!isset($_SESSION["name"])) {
             align-items: center;
         }
 
-        #edit {
+        input[type="button"] {
             position: relative;
             left: 50px;
-            width: 30px;
+            width: 40px;
             height: 20px;
+            border: none;
             /* background-color: green; */
         }
 
@@ -143,6 +144,23 @@ if (!isset($_SESSION["name"])) {
         .disabled {
             opacity: 0.5;
         }
+
+        #updProfile {
+            background-color: #f4f4f4;
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            bottom: 0;
+            z-index: 1;
+            display: none;
+        }
+
+        #confirmation {
+            column-count: 2;
+            column-width: 100px;
+            background-color: blue;
+            list-style: none;
+        }
     </style>
 </head>
 
@@ -166,8 +184,7 @@ if (!isset($_SESSION["name"])) {
                 <form action="./update-profile.php" method="post">
                     <div id="profile">
                         <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="">
-                        <label for="uploadProfile" id="edit">Edit</label>
-                        <input type="file" name="profile" id="uploadProfile">
+                        <input type="button" value="Edit" onclick="upload()">
                     </div>
                     <label for="name">Full name</label>
                     <input type="text" name="name" id="name" value="<?php echo $name = (isset($row["name"])) ? $row["name"] : null; ?>" oninput="enSubmitBtn()">
@@ -182,6 +199,19 @@ if (!isset($_SESSION["name"])) {
 
                 </form>
             </div>
+
+            <div id="updProfile">
+                <div id="updContain">
+                    <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="" style="background-color: white;">
+                    <label for="uploadProfile" id="edit">Edit</label>
+                    <input type="file" name="profile" id="uploadProfile" onclick="upload()">
+                    <ul id="confirmation">
+                        <li><button type="submit">Save</button></li>
+                        <li><button type="submit">Cancel</button></li>
+                    </ul>
+                </div>
+            </div>
+
     <?php }
     }
     ?>
@@ -196,6 +226,13 @@ if (!isset($_SESSION["name"])) {
         // console.log("tekan input")
         let btn = document.getElementsByTagName("button")
         btn[0].style.opacity = "1"
+    }
+
+    function upload() {
+        console.log("upload profile")
+        let openProfile = document.getElementById("updProfile")
+        openProfile.style.display = "block"
+        // enSubmitBtn()
     }
 </script>
 
