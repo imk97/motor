@@ -146,20 +146,44 @@ if (!isset($_SESSION["name"])) {
         }
 
         #updProfile {
-            background-color: #f4f4f4;
-            width: 100%;
-            height: 50vh;
+            width: 100vw;
+            height: 100vh;
             position: absolute;
+            top: 0;
             bottom: 0;
+            left: 0;
+            right: 0;
             z-index: 1;
             display: none;
         }
 
+        #updOverlay {
+            background-color: #f4f4f4;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        #updContain {
+            position: fixed;
+            bottom: 0px;
+            background-color: whitesmoke;
+            width: 100%;
+            height: 60vh;
+        }
+
         #confirmation {
+            /* position: fixed; */
+            /* bottom: 20px; */
             column-count: 2;
             column-width: 100px;
-            background-color: blue;
+            /* background-color: blue; */
             list-style: none;
+        }
+
+        #confirmatio button {
+
         }
     </style>
 </head>
@@ -201,13 +225,13 @@ if (!isset($_SESSION["name"])) {
             </div>
 
             <div id="updProfile">
+                <div id="updOverlay" onclick="closeUpdProfile()"></div>
                 <div id="updContain">
-                    <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="" style="background-color: white;">
-                    <label for="uploadProfile" id="edit">Edit</label>
+                    <!-- <img src="profile_images/<?php //echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="" style="background-color: white;"> -->
                     <input type="file" name="profile" id="uploadProfile" onclick="upload()">
                     <ul id="confirmation">
-                        <li><button type="submit">Save</button></li>
-                        <li><button type="submit">Cancel</button></li>
+                        <!-- <li><button type="submit">Save</button></li> -->
+                        <!-- <li><button type="submit">Cancel</button></li> -->
                     </ul>
                 </div>
             </div>
@@ -222,6 +246,8 @@ if (!isset($_SESSION["name"])) {
 </body>
 
 <script>
+    let profile = document.getElementById("updProfile")
+
     function enSubmitBtn() {
         // console.log("tekan input")
         let btn = document.getElementsByTagName("button")
@@ -229,10 +255,15 @@ if (!isset($_SESSION["name"])) {
     }
 
     function upload() {
+        // Bukak profile picture page
         console.log("upload profile")
-        let openProfile = document.getElementById("updProfile")
-        openProfile.style.display = "block"
+        profile.style.display = "block"
         // enSubmitBtn()
+    }
+
+    function closeUpdProfile() {
+        // Close profile picture page
+        profile.style.display = "none"
     }
 </script>
 
