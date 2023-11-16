@@ -171,20 +171,25 @@ if (!isset($_SESSION["name"])) {
             background-color: whitesmoke;
             width: 100%;
             height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 200px;
         }
 
         #confirmation {
-            /* position: fixed; */
-            /* bottom: 20px; */
-            column-count: 2;
-            column-width: 100px;
-            /* background-color: blue; */
-            list-style: none;
+            width: 100%;
         }
 
-        #confirmatio button {
-
+        #confirmation button:nth-child(1) {
+            margin-bottom: 2.5px;
         }
+
+        #confirmation button:nth-child(2) {
+            margin-top: 2.5px;
+        }
+
     </style>
 </head>
 
@@ -227,12 +232,12 @@ if (!isset($_SESSION["name"])) {
             <div id="updProfile">
                 <div id="updOverlay" onclick="closeUpdProfile()"></div>
                 <div id="updContain">
-                    <!-- <img src="profile_images/<?php //echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="" style="background-color: white;"> -->
+                    <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="">
                     <input type="file" name="profile" id="uploadProfile" onclick="upload()">
-                    <ul id="confirmation">
-                        <!-- <li><button type="submit">Save</button></li> -->
-                        <!-- <li><button type="submit">Cancel</button></li> -->
-                    </ul>
+                    <div id="confirmation">
+                        <button type="submit">Save</button>
+                        <button type="submit">Cancel</button>
+                    </div>
                 </div>
             </div>
 
