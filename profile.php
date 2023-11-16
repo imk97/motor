@@ -170,7 +170,7 @@ if (!isset($_SESSION["name"])) {
             bottom: 0px;
             background-color: whitesmoke;
             width: 100%;
-            height: 60vh;
+            /*height: 60vh;*/
             display: flex;
             justify-content: center;
             align-items: center;
@@ -180,6 +180,8 @@ if (!isset($_SESSION["name"])) {
 
         #confirmation {
             width: 100%;
+            position: relative;
+            bottom: 20px;
         }
 
         #confirmation button:nth-child(1) {
