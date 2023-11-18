@@ -170,12 +170,35 @@ if (!isset($_SESSION["name"])) {
             bottom: 0px;
             background-color: whitesmoke;
             width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
             /*height: 60vh;*/
-            display: flex;
+            /* display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            row-gap: 200px;
+            row-gap: 200px; */
+        }
+
+        #image-container {
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50px;
+        }
+
+        #image-container label {
+            display: block;
+            width: 100px;
+            height: 100px;
+            /* position: relative;
+            bottom: 0; */
+        }
+
+        #image-container label i {
+            display: none;
         }
 
         #confirmation {
@@ -234,12 +257,15 @@ if (!isset($_SESSION["name"])) {
             <div id="updProfile">
                 <div id="updOverlay" onclick="closeUpdProfile()"></div>
                 <div id="updContain">
-                    <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "person.png" ;?>" alt="">
-                    <input type="file" name="profile" id="uploadProfile" onclick="upload()">
-                    <div id="confirmation">
+                    <div id="image-container">
+                        <!-- <img src="profile_images/<?php echo $profile = (isset($row["picture"]) != null) ? $row["picture"] : "dwayne-the-rock-.jpg" ;?>" alt="" width="100px" height="100px"> -->
+                        <label for="uploadProfile"><i class="fas fa-camera"></i></label>
+                        <input type="file" name="profile" id="uploadProfile" onclick="upload()">
+                    </div>
+                    <!-- <div id="confirmation">
                         <button type="submit">Save</button>
                         <button type="submit">Cancel</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -271,6 +297,11 @@ if (!isset($_SESSION["name"])) {
     function closeUpdProfile() {
         // Close profile picture page
         profile.style.display = "none"
+    }
+
+    function trigUpload() {
+        console.log("sampei")
+        
     }
 </script>
 
