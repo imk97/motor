@@ -172,6 +172,8 @@ if (!isset($_SESSION["name"])) {
             width: 100%;
             padding-top: 20px;
             padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
             /*height: 60vh;*/
             /* display: flex;
             justify-content: center;
@@ -182,17 +184,17 @@ if (!isset($_SESSION["name"])) {
 
         #image-container {
             background-color: blue;
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: 200px;
             margin-left: auto;
             margin-right: auto;
-            border-radius: 50px;
+            /* border-radius: 50px; */
         }
 
         #image-container label {
             display: block;
-            width: 100px;
-            height: 100px;
+            width: 100%;
+            height: 200px;
             /* position: relative;
             bottom: 0; */
         }
@@ -299,10 +301,6 @@ if (!isset($_SESSION["name"])) {
         profile.style.display = "none"
     }
 
-    function trigUpload() {
-        console.log("sampei")
-        
-    }
 </script>
 
 </html>
